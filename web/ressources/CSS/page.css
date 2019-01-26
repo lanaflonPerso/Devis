@@ -1,0 +1,12 @@
+body{
+    background-color: #181818;
+    width:80%;
+    margin:auto;
+    margin-top: 10px;
+    animation-name: body-color;
+    animation-duration: 4s;
+}
+
+h1 {
+    font-size: large;
+}
