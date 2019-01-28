@@ -119,17 +119,6 @@
         </div>
         <script type="text/javascript" src="https://cdn.jotfor.ms/js/formTranslation.v2.js?3.3.9632"></script>
         <ul class="form-section page-section">
-            <li class="form-line jf-required" data-type="control_number" id="id_1">
-                <label class="form-label form-label-top form-label-auto" id="label_1" for="input_1">
-                    idDevis
-                    <span class="form-required">
-            *
-          </span>
-                </label>
-                <div id="cid_1" class="form-input-wide jf-required">
-                    <input type="number" id="input_1" name="q1_nombre" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
-                </div>
-            </li>
             <li class="form-line jf-required" data-type="control_textbox" id="id_2">
                 <label class="form-label form-label-top form-label-auto" id="label_2" for="input_2">
                     numDevis
@@ -259,18 +248,6 @@
                 </label>
                 <div id="cid_9" class="form-input-wide jf-required">
                     <input type="number" id="input_9" name="q9_nombre9" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
-                </div>
-            </li>
-            <li class="form-line jf-required" data-type="control_number" id="id_10">
-                <label class="form-label form-label-top form-label-auto" id="label_10" for="input_10">
-                    NofactureIdmbre
-                    <span class="form-required">
-            *
-          </span>
-                </label>
-                <div id="cid_10" class="form-input-wide jf-required">
-<!--                <input type="number" id="input_10" name="q10_nombre10" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" /> -->
-                    <input type="number" id="input_10" name="q10_nombre10" data-type="input-number" class=" form-number-input form-textbox " style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
                 </div>
             </li>
             <li class="form-line" data-type="control_button" id="id_11">

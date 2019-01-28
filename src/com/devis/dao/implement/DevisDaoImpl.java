@@ -68,7 +68,7 @@ public class DevisDaoImpl implements DevisDao {
                                 "ORDER BY devis.id_devis ASC;";
 
     private static final String SQL_INSERT_FAKE_FACTURE = "INSERT INTO facture " +
-            "(id_facture, date_facturation," +
+            "(date_facturation," +
             "delai_paiement_id," +
             "date_paiement," +
             "total_ht," +
@@ -76,7 +76,7 @@ public class DevisDaoImpl implements DevisDao {
             "total_ttc," +
             "statut_facture_id," +
             "mode_paiement_id) " +
-            "VALUES (?, '1977-06-10', 1, '2011-05-03', null, '20.0', null, 1, 2)";
+            "VALUES ('1977-06-10', 1, '2011-05-03', null, '20.0', null, 1, 2)";
 
     private static final String SQL_INSERT =
     "INSERT INTO devis " +
@@ -150,12 +150,17 @@ public class DevisDaoImpl implements DevisDao {
 
             connexion.setAutoCommit(false); // Positionné ici car 2 il y 2 insert (Fake insert facture)
 
-            // Fake insert facture : Créer un enregistrement factice de 'facture' pour permettre l'enreg de 'devis' (FK unique)
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_FAKE_FACTURE, true, devis.getFactureId());
+            //// Fake insert facture : Créer un enregistrement factice de 'facture' pour permettre l'enreg de 'devis' (FK unique)
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_FAKE_FACTURE, true);
 
             preparedStatement.executeUpdate();
+            // Récupération de la PK de facture à insérer dans devis
+            valeursAutoGenerees = preparedStatement.getGeneratedKeys();
+            valeursAutoGenerees.next();
+            long idFacturePK = valeursAutoGenerees.getLong( 1 );
+
             fermetureSilencieuse(preparedStatement);
-            //
+            ////
 
             preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true
                 ,devis.getNumDevis(),
@@ -166,7 +171,7 @@ public class DevisDaoImpl implements DevisDao {
                 devis.getTypeLivraisonId(),
                 devis.getEntrepriseContactId(),
                 devis.getEntrepriseId(),
-                devis.getFactureId()
+                idFacturePK // Utilisation de la PK de facture
                 );
 
             int statut = preparedStatement.executeUpdate();

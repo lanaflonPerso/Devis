@@ -33,7 +33,7 @@ public class PageDevis extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Devis devis = new Devis();
-        devis.setIdDevis(Long.parseLong(request.getParameter("q1_nombre")));
+        //devis.setIdDevis(Long.parseLong(request.getParameter("q1_nombre"))); Pas utilisé dans DevisDaoImpl
         devis.setNumDevis(request.getParameter("q2_typeA"));
         java.sql.Date date = Date.valueOf ( request.getParameter(  "q3_date[year]") + "-" + request.getParameter(  "q3_date[month]") + "-" + request.getParameter(  "q3_date[day]") );
         devis.setDateDevis( date );
@@ -44,7 +44,7 @@ public class PageDevis extends HttpServlet {
         devis.setTypeLivraisonId(Long.parseLong(request.getParameter("q7_nombre7")));
         devis.setEntrepriseContactId(Long.parseLong(request.getParameter("q8_nombre8")));
         devis.setEntrepriseId(Long.parseLong(request.getParameter("q9_nombre9")));
-        devis.setFactureId(Long.parseLong(request.getParameter("q10_nombre10")));
+        //devis.setFactureId(Long.parseLong(request.getParameter("q10_nombre10"))); Pas utilisé dans DevisDaoImpl
 
         this.devisDao.create(devis);
 
