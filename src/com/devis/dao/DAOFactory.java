@@ -5,6 +5,8 @@ import com.devis.dao.implement.DevisDao;
 import com.devis.dao.implement.DevisDaoImpl;
 import com.devis.dao.implement.FactureDao;
 import com.devis.dao.implement.FactureDaoImpl;
+import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.tomcat.jdbc.pool.PoolProperties;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,14 +23,11 @@ public class DAOFactory {
     private static final String PROPERTY_NOM_UTILISATEUR = "nomutilisateur";
     private static final String PROPERTY_MOT_DE_PASSE    = "motdepasse";
 
-    private String              url;
-    private String              username;
-    private String              password;
+    // Tomcat JDBC Connection Pool
+    private DataSource connectionPool = null;
 
-    DAOFactory( String url, String username, String password ) {
-        this.url = url;
-        this.username = username;
-        this.password = password;
+    DAOFactory( DataSource connectionPool ) {
+        this.connectionPool = connectionPool;
     }
 
     /*
@@ -41,6 +40,7 @@ public class DAOFactory {
         String driver;
         String nomUtilisateur;
         String motDePasse;
+        DataSource connectionPool = null;
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
@@ -65,14 +65,46 @@ public class DAOFactory {
             throw new DAOConfigurationException( "Le driver est introuvable dans le classpath.", e );
         }
 
-        DAOFactory instance = new DAOFactory( url, nomUtilisateur, motDePasse );
+        // Tomcat JDBC Connection Pool //
+        /*
+         * Création d'une configuration de pool de connexions via l'objet
+         * PoolProperties et les différents setters associés.
+         */
+        PoolProperties p = new PoolProperties();
+        p.setUrl( url );
+        p.setDriverClassName( driver );
+        p.setUsername( nomUtilisateur );
+        p.setPassword( motDePasse );
+        p.setMaxActive(50);
+        p.setInitialSize(15);
+        p.setMaxWait(20000);
+        p.setMaxIdle(15);
+        p.setMinIdle(8);
+        p.setJdbcInterceptors(
+                "org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;"+
+                        "org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
+
+        /* Création du pool à partir de la configuration, via l'objet DataSource */
+        connectionPool = new DataSource();
+        if( connectionPool == null )
+        {
+            throw new DAOConfigurationException( "Erreur de configuration du pool de connexions." );
+        }
+        connectionPool.setPoolProperties(p);
+
+        /*
+         * Enregistrement du pool créé dans une variable d'instance via un appel
+         * au constructeur de DAOFactory
+         */
+        DAOFactory instance = new DAOFactory( connectionPool );
         return instance;
     }
 
     /* Méthode chargée de fournir une connexion à la base de données */
     public Connection getConnection() throws SQLException {
+
         //connexion.setAutoCommit(false);
-        return DriverManager.getConnection( url, username, password );
+        return this.connectionPool.getConnection();
     }
 
     /*

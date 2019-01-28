@@ -33,6 +33,9 @@ public class PageDevis extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Devis devis = new Devis();
+
+        /* Récupération des entrées du formulaire */
+        /* TODO : Utiliser la lib NumberUtils pour les entrées NULL (ex: toLong) */
         //devis.setIdDevis(Long.parseLong(request.getParameter("q1_nombre"))); Pas utilisé dans DevisDaoImpl
         devis.setNumDevis(request.getParameter("q2_typeA"));
         java.sql.Date date = Date.valueOf ( request.getParameter(  "q3_date[year]") + "-" + request.getParameter(  "q3_date[month]") + "-" + request.getParameter(  "q3_date[day]") );
@@ -46,6 +49,7 @@ public class PageDevis extends HttpServlet {
         devis.setEntrepriseId(Long.parseLong(request.getParameter("q9_nombre9")));
         //devis.setFactureId(Long.parseLong(request.getParameter("q10_nombre10"))); Pas utilisé dans DevisDaoImpl
 
+        // Insertion en bdd du devis renseigné par le formulaire
         this.devisDao.create(devis);
 
         request.setAttribute("listeDevis", this.devisDao.doList());
