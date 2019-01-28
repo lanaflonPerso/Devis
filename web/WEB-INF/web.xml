@@ -25,8 +25,12 @@
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
-            <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+            <include-prelude>/WEB-INF/jsp/taglibs.jsp</include-prelude>
         </jsp-property-group>
     </jsp-config>
+
+    <listener>
+        <listener-class>com.devis.config.InitialisationDaoFactory</listener-class>
+    </listener>
 
 </web-app>

@@ -269,7 +269,8 @@
           </span>
                 </label>
                 <div id="cid_10" class="form-input-wide jf-required">
-                    <input type="number" id="input_10" name="q10_nombre10" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
+<!--                <input type="number" id="input_10" name="q10_nombre10" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" /> -->
+                    <input type="number" id="input_10" name="q10_nombre10" data-type="input-number" class=" form-number-input form-textbox " style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
                 </div>
             </li>
             <li class="form-line" data-type="control_button" id="id_11">
