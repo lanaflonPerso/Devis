@@ -71,9 +71,8 @@ public class DAOFactory {
 
     /* Méthode chargée de fournir une connexion à la base de données */
     public Connection getConnection() throws SQLException {
-        Connection connexion = DriverManager.getConnection( url, username, password );
         //connexion.setAutoCommit(false);
-        return connexion;
+        return DriverManager.getConnection( url, username, password );
     }
 
     /*
