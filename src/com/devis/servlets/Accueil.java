@@ -9,13 +9,15 @@ import java.io.IOException;
 
 @WebServlet(name = "Accueil")
 public class Accueil extends HttpServlet {
+    public static final String VUE              = "/WEB-INF/jsp/accueil.jsp";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 
     }
 }
