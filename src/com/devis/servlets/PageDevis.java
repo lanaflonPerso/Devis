@@ -35,7 +35,8 @@ public class PageDevis extends HttpServlet {
         Devis devis = new Devis();
 
         /* Récupération des entrées du formulaire */
-        /* TODO : Utiliser la lib NumberUtils pour les entrées NULL (ex: toLong) */
+        /* TODO : Utiliser la lib NumberUtils (ex: toLong) pour les entrées vides "" et les entrées NULL */
+        /* TODO : Modifier les types primitifs des Beans pour des types wrapper acceptant les NULL */
         //devis.setIdDevis(Long.parseLong(request.getParameter("q1_nombre"))); Pas utilisé dans DevisDaoImpl
         devis.setNumDevis(request.getParameter("q2_typeA"));
         java.sql.Date date = Date.valueOf ( request.getParameter(  "q3_date[year]") + "-" + request.getParameter(  "q3_date[month]") + "-" + request.getParameter(  "q3_date[day]") );
