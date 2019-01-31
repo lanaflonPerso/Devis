@@ -17,6 +17,12 @@ public class Accueil extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+
+        request.setAttribute("nom", nom);
+        request.setAttribute("prenom", prenom);
+
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 
     }

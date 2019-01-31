@@ -8,5 +8,7 @@
 
     <%@ include file="menu.jsp" %>
 
+    <p>Bienvenue <c:out value="${ nom }" /> <c:out value="${ prenom }" /></p>
+
 </body>
 </html>
