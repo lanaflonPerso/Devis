@@ -132,9 +132,10 @@ public class DevisDaoImpl implements DevisDao {
             throw new DAOException( e );
         } finally {
             fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+            return listDevis;
         }
 
-        return listDevis;
+        //return listDevis;
     }
 
     /* Implémentation de la méthode définie dans l'interface DevisDao */
@@ -193,9 +194,10 @@ public class DevisDaoImpl implements DevisDao {
 
         } finally {
             fermeturesSilencieuses( valeursAutoGenerees, preparedStatement, connexion );
+            return isCreateOk;
         }
 
-        return isCreateOk;
+        //return isCreateOk;
     }
 
     /* Implémentation de la méthode définie dans l'interface UtilisateurDao */

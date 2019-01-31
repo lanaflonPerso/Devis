@@ -86,10 +86,13 @@ public class DAOFactory {
 
         /* Création du pool à partir de la configuration, via l'objet DataSource */
         connectionPool = new DataSource();
+
+        /* TODO : Trouver comment tester la création de connectionPool (!= null dans tous les cas)
         if( connectionPool == null )
         {
             throw new DAOConfigurationException( "Erreur de configuration du pool de connexions." );
-        }
+        }*/
+
         connectionPool.setPoolProperties(p);
 
         /*

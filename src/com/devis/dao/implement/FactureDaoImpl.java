@@ -85,9 +85,10 @@ public class FactureDaoImpl implements FactureDao {
             throw new DAOException( e );
         } finally {
             fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+            return factures;
         }
 
-        return factures;
+        //return factures;
     }
 
     /* Implémentation de la méthode définie dans l'interface FactureDao */
