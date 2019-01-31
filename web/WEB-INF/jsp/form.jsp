@@ -127,7 +127,7 @@
           </span>
                 </label>
                 <div id="cid_2" class="form-input-wide jf-required">
-                    <input type="text" id="input_2" name="q2_typeA" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="" data-component="textbox" required="" />
+                    <input type="text" id="input_2" name="numDevis" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="" data-component="textbox" required="" />
                 </div>
             </li>
             <li class="form-line" data-type="control_datetime" id="id_3">
@@ -136,21 +136,21 @@
                     <div data-wrapper-react="true">
                         <div style="display:none">
               <span class="form-sub-label-container" style="vertical-align:top">
-                <input type="tel" class="form-textbox validate[limitDate]" id="month_3" name="q3_date[month]" size="2" data-maxlength="2" value="" />
+                <input type="tel" class="form-textbox validate[limitDate]" id="month_3" name="dateDevis[month]" size="2" data-maxlength="2" value="" />
                 <span class="date-separate">
                    -
                 </span>
                 <label class="form-sub-label" for="month_3" id="sublabel_month" style="min-height:13px"> Mois </label>
               </span>
                             <span class="form-sub-label-container" style="vertical-align:top">
-                <input type="tel" class="form-textbox validate[limitDate]" id="day_3" name="q3_date[day]" size="2" data-maxlength="2" value="" />
+                <input type="tel" class="form-textbox validate[limitDate]" id="day_3" name="dateDevis[day]" size="2" data-maxlength="2" value="" />
                 <span class="date-separate">
                    -
                 </span>
                 <label class="form-sub-label" for="day_3" id="sublabel_day" style="min-height:13px"> Jour </label>
               </span>
                             <span class="form-sub-label-container" style="vertical-align:top">
-                <input type="tel" class="form-textbox validate[limitDate]" id="year_3" name="q3_date[year]" size="4" data-maxlength="4" value="" />
+                <input type="tel" class="form-textbox validate[limitDate]" id="year_3" name="dateDevis[year]" size="4" data-maxlength="4" value="" />
                 <label class="form-sub-label" for="year_3" id="sublabel_year" style="min-height:13px"> an </label>
               </span>
                         </div>
@@ -171,21 +171,21 @@
                     <div data-wrapper-react="true">
                         <div style="display:none">
               <span class="form-sub-label-container" style="vertical-align:top">
-                <input type="tel" class="form-textbox validate[limitDate]" id="month_4" name="q4_date4[month]" size="2" data-maxlength="2" value="" />
+                <input type="tel" class="form-textbox validate[limitDate]" id="month_4" name="dateFinValidite[month]" size="2" data-maxlength="2" value="" />
                 <span class="date-separate">
                    -
                 </span>
                 <label class="form-sub-label" for="month_4" id="sublabel_month" style="min-height:13px"> Mois </label>
               </span>
                             <span class="form-sub-label-container" style="vertical-align:top">
-                <input type="tel" class="form-textbox validate[limitDate]" id="day_4" name="q4_date4[day]" size="2" data-maxlength="2" value="" />
+                <input type="tel" class="form-textbox validate[limitDate]" id="day_4" name="dateFinValidite[day]" size="2" data-maxlength="2" value="" />
                 <span class="date-separate">
                    -
                 </span>
                 <label class="form-sub-label" for="day_4" id="sublabel_day" style="min-height:13px"> Jour </label>
               </span>
                             <span class="form-sub-label-container" style="vertical-align:top">
-                <input type="tel" class="form-textbox validate[limitDate]" id="year_4" name="q4_date4[year]" size="4" data-maxlength="4" value="" />
+                <input type="tel" class="form-textbox validate[limitDate]" id="year_4" name="dateFinValidite[year]" size="4" data-maxlength="4" value="" />
                 <label class="form-sub-label" for="year_4" id="sublabel_year" style="min-height:13px"> an </label>
               </span>
                         </div>
@@ -203,7 +203,7 @@
             <li class="form-line" data-type="control_textarea" id="id_5">
                 <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5"> commentaire </label>
                 <div id="cid_5" class="form-input-wide">
-                    <textarea id="input_5" class="form-textarea" name="q5_typeA5" cols="40" rows="6" data-component="textarea"></textarea>
+                    <textarea id="input_5" class="form-textarea" name="commentaire" cols="40" rows="6" data-component="textarea"></textarea>
                 </div>
             </li>
             <li class="form-line jf-required" data-type="control_number" id="id_6">
@@ -214,7 +214,7 @@
           </span>
                 </label>
                 <div id="cid_6" class="form-input-wide jf-required">
-                    <input type="number" id="input_6" name="q6_nombre6" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
+                    <input type="number" id="input_6" name="clientInterlocuteurId" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
                 </div>
             </li>
             <li class="form-line jf-required" data-type="control_number" id="id_7">
@@ -225,7 +225,7 @@
           </span>
                 </label>
                 <div id="cid_7" class="form-input-wide jf-required">
-                    <input type="number" id="input_7" name="q7_nombre7" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
+                    <input type="number" id="input_7" name="typeLivraisonId" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
                 </div>
             </li>
             <li class="form-line jf-required" data-type="control_number" id="id_8">
@@ -236,7 +236,7 @@
           </span>
                 </label>
                 <div id="cid_8" class="form-input-wide jf-required">
-                    <input type="number" id="input_8" name="q8_nombre8" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
+                    <input type="number" id="input_8" name="entrepriseContactId" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
                 </div>
             </li>
             <li class="form-line jf-required" data-type="control_number" id="id_9">
@@ -247,7 +247,7 @@
           </span>
                 </label>
                 <div id="cid_9" class="form-input-wide jf-required">
-                    <input type="number" id="input_9" name="q9_nombre9" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
+                    <input type="number" id="input_9" name="entrepriseId" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:60px" size="5" value="" placeholder="ex: 23" data-component="number" required="" />
                 </div>
             </li>
             <li class="form-line" data-type="control_button" id="id_11">

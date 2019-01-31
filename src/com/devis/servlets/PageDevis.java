@@ -40,18 +40,18 @@ public class PageDevis extends HttpServlet {
         /* TODO : Utiliser la lib NumberUtils (ex: toLong) pour les entrées vides "" et les entrées NULL */
         /* TODO : Modifier les types primitifs des Beans pour des types wrapper acceptant les NULL */
         /* TODO : Utiliser méthode getValeurChamp avec private static final CHAMP_X */
-        //devis.setIdDevis(Long.parseLong(request.getParameter("q1_nombre"))); Pas utilisé dans DevisDaoImpl
-        devis.setNumDevis(request.getParameter("q2_typeA"));
-        java.sql.Date date = Date.valueOf ( request.getParameter(  "q3_date[year]") + "-" + request.getParameter(  "q3_date[month]") + "-" + request.getParameter(  "q3_date[day]") );
+        //devis.setIdDevis : absent du formulaire car pas utilisé dans DevisDaoImpl
+        devis.setNumDevis(request.getParameter("numDevis"));
+        java.sql.Date date = Date.valueOf ( request.getParameter(  "dateDevis[year]") + "-" + request.getParameter(  "dateDevis[month]") + "-" + request.getParameter(  "dateDevis[day]") );
         devis.setDateDevis( date );
-        date = Date.valueOf ( request.getParameter(  "q4_date4[year]") + "-" + request.getParameter(  "q4_date4[month]") + "-" + request.getParameter(  "q4_date4[day]") );
+        date = Date.valueOf ( request.getParameter(  "dateFinValidite[year]") + "-" + request.getParameter(  "dateFinValidite[month]") + "-" + request.getParameter(  "dateFinValidite[day]") );
         devis.setDateFinValidite( date );
-        devis.setCommentaire(request.getParameter("q5_typeA5"));
-        devis.setClientInterlocuteurId(Long.parseLong(request.getParameter("q6_nombre6")));
-        devis.setTypeLivraisonId(Long.parseLong(request.getParameter("q7_nombre7")));
-        devis.setEntrepriseContactId(Long.parseLong(request.getParameter("q8_nombre8")));
-        devis.setEntrepriseId(Long.parseLong(request.getParameter("q9_nombre9")));
-        //devis.setFactureId(Long.parseLong(request.getParameter("q10_nombre10"))); Pas utilisé dans DevisDaoImpl
+        devis.setCommentaire(request.getParameter("commentaire"));
+        devis.setClientInterlocuteurId(Long.parseLong(request.getParameter("clientInterlocuteurId")));
+        devis.setTypeLivraisonId(Long.parseLong(request.getParameter("typeLivraisonId")));
+        devis.setEntrepriseContactId(Long.parseLong(request.getParameter("entrepriseContactId")));
+        devis.setEntrepriseId(Long.parseLong(request.getParameter("entrepriseId")));
+        //devis.setFactureId : absent du formulaire car pas utilisé dans DevisDaoImpl
 
         // Insertion en bdd du devis renseigné par le formulaire
         this.devisDao.create(devis);
