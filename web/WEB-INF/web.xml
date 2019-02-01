@@ -10,7 +10,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
-        <url-pattern>/</url-pattern> <!-- Utiliser une ServletFilter pour les query strings -->
+        <url-pattern>/accueil</url-pattern> <!-- Utiliser une ServletFilter pour les query strings -->
     </servlet-mapping>
 
     <servlet>
@@ -34,7 +34,16 @@
     </listener>
 
     <!-- TODO : Savoir à quoi correspond exactement les directives ci-dessous.
-    Sans elles, le navigateur affiche : "Resource interpreted as Stylesheet but transferred with MIME type text/html"
+    Si:
+    <servlet-name>Accueil</servlet-name>
+        <url-pattern>/</url-pattern>
+    alors le navigateur affiche : "Resource interpreted as Stylesheet but transferred with MIME type text/html"
+    et ne charge pas les css.
+    Les directives ci-dessous permettent de contourner ce probleme
+    Par contre avec ces directives si :
+    <servlet-name>Accueil</servlet-name>
+        <url-pattern>/</url-pattern>
+    l'index n'est plus trouvé, les css se chargent mais avec une erreur dans le formulaire (attente d'un fichier php dans le post/action
     -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
