@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link url="${pageContext.request.contextPath}/ressources/CSS/page.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/ressources/CSS/page.css" rel="stylesheet" type="text/css">
     <title>Accueil</title>
 </head>
 <body>
