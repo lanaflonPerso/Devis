@@ -8,7 +8,8 @@
 
     <%@ include file="menu.jsp" %>
 
-    <p>Bienvenue <c:out value="${ nom }" /> <c:out value="${ prenom }" /></p>
+    <!-- Utilisation des objets EL implicites ici param -->
+    <p>Bienvenue <c:out value="${ param.nom }" /> <c:out value="${ param.prenom }" /></p>
 
 </body>
 </html>
