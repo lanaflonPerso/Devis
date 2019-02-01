@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: blue;
+#pageDevisBody {
+    background-color: azure;
 }
 
 h1 {

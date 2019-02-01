@@ -3,7 +3,7 @@
     <link href="${pageContext.request.contextPath}/ressources/CSS/pageDevis.css" rel="stylesheet" type="text/css">
     <title>Devis</title>
 </head>
-<body>
+<body id="pageDevisBody">
     <h1>Devis</h1>
 
     <%@ include file="menu.jsp" %>
