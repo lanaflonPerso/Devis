@@ -51,9 +51,6 @@
     <script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.9632" type="text/javascript"></script>
     <script type="text/javascript">
         JotForm.init(function(){
-            setTimeout(function() {
-                $('input_1').hint('ex: 23');
-            }, 20);
 
             JotForm.calendarMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
             JotForm.calendarDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
@@ -84,9 +81,7 @@
             setTimeout(function() {
                 $('input_9').hint('ex: 23');
             }, 20);
-            setTimeout(function() {
-                $('input_10').hint('ex: 23');
-            }, 20);
+
             JotForm.alterTexts(undefined);
             JotForm.clearFieldOnHide="disable";
             FormTranslation.init({"detectUserLanguage":"1","firstPageOnly":"0","options":"Français","originalLanguage":"fr","primaryLanguage":"fr","saveUserLanguage":"1","showStatus":"flag-with-nation","theme":"light-theme","version":"2"});

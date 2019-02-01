@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link href="${pageContext.request.contextPath}/ressources/CSS/pageDevis.css" rel="stylesheet" type="text/css">
     <title>Devis</title>
 </head>
 <body>

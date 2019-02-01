@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Accueil")
-public class Accueil extends HttpServlet {
-    public static final String VUE              = "/WEB-INF/jsp/accueil.jsp";
+@WebServlet(name = "PageAccueil")
+public class PageAccueil extends HttpServlet {
+    public static final String VUE              = "/WEB-INF/jsp/pageAccueil.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

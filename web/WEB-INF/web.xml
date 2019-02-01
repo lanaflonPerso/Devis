@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>Accueil</servlet-name>
-        <servlet-class>com.devis.servlets.Accueil</servlet-class>
+        <servlet-class>com.devis.servlets.PageAccueil</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
@@ -32,6 +32,16 @@
     <listener>
         <listener-class>com.devis.config.InitialisationDaoFactory</listener-class>
     </listener>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
 
     <!-- TODO : add Header & Footer -->
 
