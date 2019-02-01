@@ -37,13 +37,16 @@
     Si:
     <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
-    alors le navigateur affiche : "Resource interpreted as Stylesheet but transferred with MIME type text/html"
-    et ne charge pas les css.
-    Les directives ci-dessous permettent de contourner ce probleme
+    alors le navigateur affiche : "Resource interpreted as Stylesheet but transferred with MIME type text/html" et ne charge pas les css.
+    Les directives ci-dessous permettent de contourner ce probleme.
     Par contre avec ces directives si :
     <servlet-name>Accueil</servlet-name>
-        <url-pattern>/</url-pattern>
-    l'index n'est plus trouvé, les css se chargent mais avec une erreur dans le formulaire (attente d'un fichier php dans le post/action
+        <url-pattern>/accueil</url-pattern>
+    l'index.html n'est plus trouvé, les css se chargent mais avec une erreur dans le formulaire (attente d'un fichier php dans le post/action mais le submit fonctionne)
+    De plus sans ces directives si:
+    <servlet-name>Accueil</servlet-name>
+        <url-pattern>/accueil</url-pattern>
+    l'index.html est trouvé, les css se chargent mais avec une erreur dans le formulaire (attente d'un fichier php dans le post/action mais le submit fonctionne)
     -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
