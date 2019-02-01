@@ -5,10 +5,7 @@ import com.devis.beans.Facture;
 import com.devis.dao.DAOFactory;
 import com.devis.dao.daoException.DAOException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,14 +78,17 @@ public class FactureDaoImpl implements FactureDao {
                 facture = map( resultSet );
                 factures.add(facture);
             }
+        } catch ( SQLNonTransientConnectionException e ) {
+            // Exception silencieuse
+            System.out.println(e);
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {
             fermeturesSilencieuses( resultSet, preparedStatement, connexion );
-            return factures;
+            //return factures; // Anti-pattern car masque l'exception
         }
 
-        //return factures;
+        return factures;
     }
 
     /* Implémentation de la méthode définie dans l'interface FactureDao */

@@ -5,10 +5,7 @@ import com.devis.beans.Devis;
 import com.devis.dao.DAOFactory;
 import com.devis.dao.daoException.DAOException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,14 +125,17 @@ public class DevisDaoImpl implements DevisDao {
                 devis = map( resultSet );
                 listDevis.add(devis);
             }
+        } catch ( SQLNonTransientConnectionException e ) {
+            // Exception silencieuse
+            System.out.println(e);
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {
             fermeturesSilencieuses( resultSet, preparedStatement, connexion );
-            return listDevis;
+            //return listDevis; // Anti-pattern car masque l'exception
         }
 
-        //return listDevis;
+        return listDevis;
     }
 
     /* Implémentation de la méthode définie dans l'interface DevisDao */
@@ -189,15 +189,17 @@ public class DevisDaoImpl implements DevisDao {
             } else {
                 throw new DAOException( "Échec de la création du devis en base, aucun ID auto-généré retourné." );
             }
+        } catch ( SQLNonTransientConnectionException e ) {
+            // Exception silencieuse
+            System.out.println(e);
         } catch ( SQLException e ) {
             throw new DAOException( e );
-
         } finally {
             fermeturesSilencieuses( valeursAutoGenerees, preparedStatement, connexion );
-            return isCreateOk;
+            //return isCreateOk; // Anti-pattern car masque l'exception
         }
 
-        //return isCreateOk;
+        return isCreateOk;
     }
 
     /* Implémentation de la méthode définie dans l'interface UtilisateurDao */
