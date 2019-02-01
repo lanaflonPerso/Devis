@@ -33,14 +33,17 @@
         <listener-class>com.devis.config.InitialisationDaoFactory</listener-class>
     </listener>
 
+    <!-- TODO : Savoir à quoi correspond exactement les directives ci-dessous.
+    Sans elles, le navigateur affiche : "Resource interpreted as Stylesheet but transferred with MIME type text/html"
+    -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.js</url-pattern>
     </servlet-mapping>
 
     <!-- TODO : add Header & Footer -->
