@@ -33,4 +33,6 @@
         <listener-class>com.devis.config.InitialisationDaoFactory</listener-class>
     </listener>
 
+    <!-- TODO : add Header & Footer -->
+
 </web-app>

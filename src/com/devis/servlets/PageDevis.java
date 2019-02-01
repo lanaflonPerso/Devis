@@ -43,6 +43,7 @@ public class PageDevis extends HttpServlet {
         /* TODO : Modifier les types primitifs des Beans pour des types wrapper acceptant les NULL */
         /* TODO : Utiliser méthode getValeurChamp avec private static final CHAMP_X */
         /* TODO : Utiliser la lib Apache Commons BeanUtils -> BeanUtils.populate(bean, request.getParameterMap()); Pas possible à cause des dates qui sont éclatées (year, month, day)*/
+        /* TODO : Utiliser les objets implicites EL (ex:initParam) pour pouvoir utiliser la lib Apache Commons BeanUtils */
         //devis.setIdDevis : absent du formulaire car pas utilisé dans DevisDaoImpl
         devis.setNumDevis(request.getParameter("numDevis"));
         java.sql.Date date = Date.valueOf ( request.getParameter(  "dateDevis[year]") + "-" + request.getParameter(  "dateDevis[month]") + "-" + request.getParameter(  "dateDevis[day]") );
