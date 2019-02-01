@@ -25,7 +25,7 @@
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
-            <include-prelude>/WEB-INF/jsp/taglibs.jsp</include-prelude>
+            <include-prelude>/WEB-INF/jspf/taglibs.jspf</include-prelude>
         </jsp-property-group>
     </jsp-config>
 
