@@ -4,6 +4,7 @@ import com.devis.beans.Devis;
 import com.devis.dao.DAOFactory;
 import com.devis.dao.implement.DevisDao;
 import com.devis.dao.implement.FactureDao;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
-//import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 @WebServlet(name = "Devis")
 public class PageDevis extends HttpServlet {
@@ -37,9 +39,10 @@ public class PageDevis extends HttpServlet {
         Devis devis = new Devis();
 
         /* Récupération des entrées du formulaire */
-        /* TODO : Utiliser la lib NumberUtils (ex: toLong) pour les entrées vides "" et les entrées NULL */
+        /* TODO : Utiliser la lib Apache Commons Lang NumberUtils (ex: toLong) pour les entrées vides "" et les entrées NULL */
         /* TODO : Modifier les types primitifs des Beans pour des types wrapper acceptant les NULL */
         /* TODO : Utiliser méthode getValeurChamp avec private static final CHAMP_X */
+        /* TODO : Utiliser la lib Apache Commons BeanUtils -> BeanUtils.populate(bean, request.getParameterMap()); Pas possible à cause des dates qui sont éclatées (year, month, day)*/
         //devis.setIdDevis : absent du formulaire car pas utilisé dans DevisDaoImpl
         devis.setNumDevis(request.getParameter("numDevis"));
         java.sql.Date date = Date.valueOf ( request.getParameter(  "dateDevis[year]") + "-" + request.getParameter(  "dateDevis[month]") + "-" + request.getParameter(  "dateDevis[day]") );
