@@ -1,12 +1,1 @@
-* {
-    box-sizing: border-box;
-}
-
-/* Les id sont nécessaires sinon les directives du formulaire inclus prennent le pas */
-#pageDevisBody {
-    background-color: aquamarine;
-}
-
-h1 {
-    font-size: large;
-}
+/* La mise en page utilise le css du formulaire form.jsp inclus dans pageDevis.jsp */
