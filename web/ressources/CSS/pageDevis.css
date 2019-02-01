@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+/* Les id sont nécessaires sinon les directives du formulaire inclus prennent le pas */
 #pageDevisBody {
     background-color: azure;
 }
