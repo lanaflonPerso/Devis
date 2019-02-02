@@ -20,7 +20,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <!-- La directive Jstl url avec "/" génère une url absolue -->
+                <!-- La directive Jstl url avec "/" génère une url absolue et gère les cookies/sessions -->
                 <a class="nav-item nav-link active" href="<c:url value="/?nom=Lebahar&prenom=Josselin&prenom=Florian" />">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="<c:url value="/devis" />">Devis</a>
             </div>
