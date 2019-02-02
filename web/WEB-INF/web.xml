@@ -60,6 +60,11 @@
     <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
     alors le navigateur affiche : "Resource interpreted as Stylesheet but transferred with MIME type text/html" et ne charge pas les css.
+    Pourtant le web.xml de la conf Tomcat précise bien le content type :
+        <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
     Les directives ci-dessous permettent de contourner ce probleme.
     Par contre avec ces directives si :
     <servlet-name>Accueil</servlet-name>
