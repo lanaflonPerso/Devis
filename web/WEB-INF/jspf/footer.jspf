@@ -1,12 +1,11 @@
 <!-- Footer -->
-<footer>
 
     <br>
-    <!-- Copyright -->
-    <div>&copy; 2018 Copyright:
-        <a href="https://yanomami.synology.me"> Josselin Lebahar</a>
-    </div>
-    <!-- Copyright -->
 
-</footer>
+    <footer class="footer navbar-fixed-bottom footer-dark bg-primary">
+        <div class="footer-copyright text-center text-white">&copy; 2019 Copyright
+            <a href="https://yanomami.synology.me"> Josselin Lebahar</a>
+        </div>
+    </footer >
+
 <!-- Footer -->
