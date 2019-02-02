@@ -2,7 +2,7 @@
 
     <br>
 
-    <footer class="footer navbar-fixed-bottom footer-dark bg-primary">
+    <footer class="footer fixed-bottom footer-dark bg-primary">
         <div class="footer-copyright text-center text-white">&copy; 2019 Copyright
             <a href="https://yanomami.synology.me"> Josselin Lebahar</a>
         </div>
