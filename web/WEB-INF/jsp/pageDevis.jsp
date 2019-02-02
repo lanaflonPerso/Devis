@@ -10,18 +10,18 @@
    <br>
 
     <!-- Liste Table Devis -->
-    <table style="border-style: double">
+    <table class="table table-striped table-dark">
         <tr>
-            <th>idDevis</th>
-            <th>numDevis</th>
-            <th>dateDevis</th>
-            <th>dateFinValidite</th>
-            <th>commentaire</th>
-            <th>clientInterlocuteurId</th>
-            <th>typeLivraisonId</th>
-            <th>entrepriseContactId</th>
-            <th>entrepriseId</th>
-            <th>factureId</th>
+            <th scope="col">idDevis</th>
+            <th scope="col">numDevis</th>
+            <th scope="col">dateDevis</th>
+            <th scope="col">dateFinValidite</th>
+            <th scope="col">commentaire</th>
+            <th scope="col">clientInterlocuteurId</th>
+            <th scope="col">typeLivraisonId</th>
+            <th scope="col">entrepriseContactId</th>
+            <th scope="col">entrepriseId</th>
+            <th scope="col">factureId</th>
         </tr>
         <c:forEach var="devis" items="${ requestScope.listeDevis }">
             <tr>
@@ -42,17 +42,17 @@
     <br>
 
     <!-- Liste Table Facture -->
-    <table style="border-style: double">
+    <table class="table table-striped table-dark">
         <tr>
-            <th>idFacture</th>
-            <th>dateFacturation</th>
-            <th>delaiPaiementId</th>
-            <th>datePaiement</th>
-            <th>totalHt</th>
-            <th>tauxTva100</th>
-            <th>totalTtc</th>
-            <th>statutFactureId</th>
-            <th>modePaiementId</th>
+            <th scope="col">idFacture</th>
+            <th scope="col">dateFacturation</th>
+            <th scope="col">delaiPaiementId</th>
+            <th scope="col">datePaiement</th>
+            <th scope="col">totalHt</th>
+            <th scope="col">tauxTva100</th>
+            <th scope="col">totalTtc</th>
+            <th scope="col">statutFactureId</th>
+            <th scope="col">modePaiementId</th>
         </tr>
         <c:forEach var="facture" items="${ requestScope.listeFactures }">
             <tr>
