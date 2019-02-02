@@ -1,1 +1,4 @@
-/* La mise en page utilise le css du formulaire form.jspf inclus dans pageDevis.jsp */
+/* La mise en page utilise les css du formulaire form.jspf inclus dans pageDevis.jsp */
+#pageDevisBody {
+    background-color: lightgoldenrodyellow;
+}
