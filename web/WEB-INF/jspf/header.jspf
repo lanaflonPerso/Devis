@@ -20,7 +20,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}?nom=Lebahar&prenom=Josselin&prenom=Florian&testUtf8=éèêà">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}?nom=Lebahar&prenom=Josselin&prenom=Florian">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="${pageContext.request.contextPath}/devis">Devis</a>
             </div>
         </div>
