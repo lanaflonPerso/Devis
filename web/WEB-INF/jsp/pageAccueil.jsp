@@ -10,7 +10,7 @@
     <br>
 
     <!-- Utilisation des objets EL implicites ici param -->
-    <p>Bienvenue à <c:out value="${param.nom} ${paramValues.prenom[0]} ${paramValues.prenom[1]}" /></p>
+    <p>Bienvenue à <c:out value="${param.nom} ${paramValues.prenom[0]} ${paramValues.prenom[1]} ${param.testUtf8}" /></p>
 
 </body>
 </html>
