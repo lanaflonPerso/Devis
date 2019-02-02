@@ -12,6 +12,7 @@
     <!-- Liste Table Devis -->
     <table class="table table-striped table-dark">
         <tr>
+            <th scope="col" class="bg-primary">#</th>
             <th scope="col">idDevis</th>
             <th scope="col">numDevis</th>
             <th scope="col">dateDevis</th>
@@ -23,8 +24,9 @@
             <th scope="col">entrepriseId</th>
             <th scope="col">factureId</th>
         </tr>
-        <c:forEach var="devis" items="${ requestScope.listeDevis }">
+        <c:forEach var="devis" items="${ requestScope.listeDevis }" varStatus="status">
             <tr>
+                <td class="bg-primary"><c:out value="${ pageScope.status.count }" /></td>
                 <td><c:out value="${ pageScope.devis.idDevis }" /></td>
                 <td><c:out value="${ pageScope.devis.numDevis }" /></td>
                 <td><c:out value="${ pageScope.devis.dateDevis }" /></td>
@@ -44,6 +46,7 @@
     <!-- Liste Table Facture -->
     <table class="table table-striped table-dark">
         <tr>
+            <th scope="col" class="bg-primary">#</th>
             <th scope="col">idFacture</th>
             <th scope="col">dateFacturation</th>
             <th scope="col">delaiPaiementId</th>
@@ -54,8 +57,9 @@
             <th scope="col">statutFactureId</th>
             <th scope="col">modePaiementId</th>
         </tr>
-        <c:forEach var="facture" items="${ requestScope.listeFactures }">
+        <c:forEach var="facture" items="${ requestScope.listeFactures }" varStatus="status">
             <tr>
+                <td class="bg-primary"><c:out value="${ pageScope.status.count }" /></td>
                 <td><c:out value="${ pageScope.facture.idFacture }" /></td>
                 <td><c:out value="${ pageScope.facture.dateFacturation }" /></td>
                 <td><c:out value="${ pageScope.facture.delaiPaiementId }" /></td>
