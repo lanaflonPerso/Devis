@@ -43,6 +43,7 @@
     Character Set Filter
     Server Page Encoding
     HTML Page Encoding
+    cf: https://www.baeldung.com/tomcat-utf-8
     -->
     <filter>
         <filter-name>CharacterSetFilter</filter-name>
