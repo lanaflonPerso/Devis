@@ -6,8 +6,6 @@
 <body>
     <h1>Devis</h1>
 
-    <%@ include file="../jspf/menu.jspf" %>
-
    <br>
 
     <!-- Liste Table Devis -->
@@ -72,7 +70,7 @@
 
     <h1>Ajouter un devis</h1>
 
-    <jsp:include page="form.jsp" />
+    <%@ include file="../jspf/form.jspf" %>
 
 </body>
 </html>
