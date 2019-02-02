@@ -37,6 +37,23 @@
         <listener-class>com.devis.config.InitialisationDaoFactory</listener-class>
     </listener>
 
+    <!-- Force the web application to handle all requests and responses in UTF-8.
+    -> TODO : Ne fonctionne pas même après :
+    Connector Configuration
+    Character Set Filter
+    Server Page Encoding
+    HTML Page Encoding
+    -->
+    <filter>
+        <filter-name>CharacterSetFilter</filter-name>
+        <filter-class>com.devis.config.CharacterSetFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CharacterSetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- TODO : Savoir à quoi correspond exactement les directives ci-dessous.
     Si:
     <servlet-name>Accueil</servlet-name>
