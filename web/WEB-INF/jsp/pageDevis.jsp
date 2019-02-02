@@ -23,18 +23,18 @@
             <th>entrepriseId</th>
             <th>factureId</th>
         </tr>
-        <c:forEach var="devis" items="${ listeDevis }">
+        <c:forEach var="devis" items="${ requestScope.listeDevis }">
             <tr>
-                <td><c:out value="${ devis.idDevis }" /></td>
-                <td><c:out value="${ devis.numDevis }" /></td>
-                <td><c:out value="${ devis.dateDevis }" /></td>
-                <td><c:out value="${ devis.dateFinValidite }" /></td>
-                <td><c:out value="${ devis.commentaire }" /></td>
-                <td><c:out value="${ devis.clientInterlocuteurId }" /></td>
-                <td><c:out value="${ devis.typeLivraisonId }" /></td>
-                <td><c:out value="${ devis.entrepriseContactId }" /></td>
-                <td><c:out value="${ devis.entrepriseId }" /></td>
-                <td><c:out value="${ devis.factureId }" /></td>
+                <td><c:out value="${ pageScope.devis.idDevis }" /></td>
+                <td><c:out value="${ pageScope.devis.numDevis }" /></td>
+                <td><c:out value="${ pageScope.devis.dateDevis }" /></td>
+                <td><c:out value="${ pageScope.devis.dateFinValidite }" /></td>
+                <td><c:out value="${ pageScope.devis.commentaire }" /></td>
+                <td><c:out value="${ pageScope.devis.clientInterlocuteurId }" /></td>
+                <td><c:out value="${ pageScope.devis.typeLivraisonId }" /></td>
+                <td><c:out value="${ pageScope.devis.entrepriseContactId }" /></td>
+                <td><c:out value="${ pageScope.devis.entrepriseId }" /></td>
+                <td><c:out value="${ pageScope.devis.factureId }" /></td>
             </tr>
         </c:forEach>
     </table>
@@ -54,17 +54,17 @@
             <th>statutFactureId</th>
             <th>modePaiementId</th>
         </tr>
-        <c:forEach var="facture" items="${ listeFactures }">
+        <c:forEach var="facture" items="${ requestScope.listeFactures }">
             <tr>
-                <td><c:out value="${ facture.idFacture }" /></td>
-                <td><c:out value="${ facture.dateFacturation }" /></td>
-                <td><c:out value="${ facture.delaiPaiementId }" /></td>
-                <td><c:out value="${ facture.datePaiement }" /></td>
-                <td><c:out value="${ facture.totalHt }" /></td>
-                <td><c:out value="${ facture.tauxTva100 }" /></td>
-                <td><c:out value="${ facture.totalTtc }" /></td>
-                <td><c:out value="${ facture.statutFactureId }" /></td>
-                <td><c:out value="${ facture.modePaiementId }" /></td>
+                <td><c:out value="${ pageScope.facture.idFacture }" /></td>
+                <td><c:out value="${ pageScope.facture.dateFacturation }" /></td>
+                <td><c:out value="${ pageScope.facture.delaiPaiementId }" /></td>
+                <td><c:out value="${ pageScope.facture.datePaiement }" /></td>
+                <td><c:out value="${ pageScope.facture.totalHt }" /></td>
+                <td><c:out value="${ pageScope.facture.tauxTva100 }" /></td>
+                <td><c:out value="${ pageScope.facture.totalTtc }" /></td>
+                <td><c:out value="${ pageScope.facture.statutFactureId }" /></td>
+                <td><c:out value="${ pageScope.facture.modePaiementId }" /></td>
             </tr>
         </c:forEach>
     </table>
