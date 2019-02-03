@@ -9,7 +9,7 @@
 
    <br>
 
-    <!-- Liste Table Display -->
+    <!-- Liste Table Devis -->
     <table class="table table-responsive table-striped table-dark">
         <tr>
             <th scope="col" class="bg-primary">#</th>

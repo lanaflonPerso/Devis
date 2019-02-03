@@ -14,12 +14,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Display</servlet-name>
-        <servlet-class>com.devis.servlets.Display</servlet-class>
+        <servlet-name>DisplayDevis</servlet-name>
+        <servlet-class>com.devis.servlets.DisplayDevis</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Display</servlet-name>
-        <url-pattern>/display</url-pattern>
+        <servlet-name>DisplayDevis</servlet-name>
+        <url-pattern>/displayDevis</url-pattern>
     </servlet-mapping>
 
     <servlet>

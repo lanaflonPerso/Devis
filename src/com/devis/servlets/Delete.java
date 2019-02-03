@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Delete extends HttpServlet {
 
     public static final String CONF_DAO_FACTORY = "daofactory";
-    public static final String VUE              = "/WEB-INF/jsp/display.jsp";
+    public static final String VUE              = "/WEB-INF/jsp/displayDevis.jsp";
 
 
     private DevisDao devisDao = null;
@@ -23,7 +23,7 @@ public class Delete extends HttpServlet {
 
     public void init() throws ServletException {
 
-        /* Récupération d'une instance de notre DAO Display */
+        /* Récupération d'une instance de notre DAO Devis */
         this.devisDao = ( (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getDevisDao();
         /* Récupération d'une instance de notre DAO Facture */
         this.factureDao = ( (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getFactureDao();
@@ -41,7 +41,7 @@ public class Delete extends HttpServlet {
         switch(nameBean) {
             case "devis":
                 this.devisDao.delete(idBean);
-                System.out.println("Delete Display");
+                System.out.println("Delete Devis");
                 break;
             case "facture":
                 System.out.println("Delete Facture");

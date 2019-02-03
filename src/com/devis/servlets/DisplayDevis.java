@@ -16,11 +16,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
 import org.apache.commons.lang3.math.NumberUtils;
 
-@WebServlet(name = "Display")
-public class Display extends HttpServlet {
+@WebServlet(name = "DisplayDevis")
+public class DisplayDevis extends HttpServlet {
 
     public static final String CONF_DAO_FACTORY = "daofactory";
-    public static final String VUE              = "/WEB-INF/jsp/display.jsp";
+    public static final String VUE              = "/WEB-INF/jsp/displayDevis.jsp";
 
 
     private DevisDao devisDao = null;
