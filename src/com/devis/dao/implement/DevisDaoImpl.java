@@ -113,12 +113,12 @@ public class DevisDaoImpl implements DevisDao {
             connexion = daoFactory.getConnection();
 
             // Cherche le devis concernée par idDevis pour récupérer le facture_id à utiliser pour supprimer facture.
+            // On aurait pu passer factureId en paramétre de delete mais ça aurait été moins générique.
             devis = this.find(idDevis);
 
             connexion.setAutoCommit(false); // Positionné ici car 2 il y 2 delete (delete devis & facture)
 
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_DEVIS,
-                    false, idDevis);
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_DEVIS, false, idDevis);
 
             int statut = preparedStatement.executeUpdate();
             if ( statut == 0 ) {
