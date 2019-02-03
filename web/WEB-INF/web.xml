@@ -31,6 +31,15 @@
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Create</servlet-name>
+        <servlet-class>com.devis.servlets.Create</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Create</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
     <jsp-config>
 
         <jsp-property-group>
