@@ -90,6 +90,112 @@
 
    <br>
 
+   <!-- Liste Table TypeLivraison -->
+   <table class="table table-striped table-dark">
+       <tr>
+           <th scope="col" class="bg-primary">#</th>
+           <th scope="col">idTypeLivraison</th>
+           <th scope="col">libelle</th>
+       </tr>
+       <c:forEach var="typeLivraison" items="${ requestScope.listeTypesLivraison }" varStatus="status">
+           <tr>
+               <td class="bg-primary"><c:out value="${ pageScope.status.count }" /></td>
+               <td><c:out value="${ pageScope.typeLivraison.idTypeLivraison }" /></td>
+               <td><c:out value="${ pageScope.typeLivraison.libelle }" /></td>
+           </tr>
+       </c:forEach>
+   </table>
+
+   <br>
+
+   <!-- Liste Table Entreprise -->
+   <table class="table table-striped table-dark">
+       <tr>
+           <th scope="col" class="bg-primary">#</th>
+           <th scope="col">idEntreprise</th>
+           <th scope="col">siret</th>
+           <th scope="col">raisonSociale</th>
+           <th scope="col">numTva</th>
+           <th scope="col">tel</th>
+           <th scope="col">fax</th>
+           <th scope="col">adresseEntrepriseId</th>
+       </tr>
+       <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }" varStatus="status">
+           <tr>
+               <td class="bg-primary"><c:out value="${ pageScope.status.count }" /></td>
+               <td><c:out value="${ pageScope.entreprise.idEntreprise }" /></td>
+               <td><c:out value="${ pageScope.entreprise.siret }" /></td>
+               <td><c:out value="${ pageScope.entreprise.raisonSociale }" /></td>
+               <td><c:out value="${ pageScope.entreprise.numTva }" /></td>
+               <td><c:out value="${ pageScope.entreprise.tel }" /></td>
+               <td><c:out value="${ pageScope.entreprise.fax }" /></td>
+               <td><c:out value="${ pageScope.entreprise.adresseEntrepriseId }" /></td>
+           </tr>
+       </c:forEach>
+   </table>
+
+   <br>
+
+   <!-- Liste Table EntrepriseContact -->
+   <table class="table table-striped table-dark">
+       <tr>
+           <th scope="col" class="bg-primary">#</th>
+           <th scope="col">idEntrepriseContact</th>
+           <th scope="col">entrepriseId</th>
+           <th scope="col">civilite</th>
+           <th scope="col">nom</th>
+           <th scope="col">prenom</th>
+           <th scope="col">tel</th>
+           <th scope="col">fax</th>
+           <th scope="col">email</th>
+       </tr>
+       <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
+           <tr>
+               <td class="bg-primary"><c:out value="${ pageScope.status.count }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.idEntrepriseContact }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.entrepriseId }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.civilite }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.nom }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.prenom }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.tel }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.fax }" /></td>
+               <td><c:out value="${ pageScope.entrepriseContact.email }" /></td>
+           </tr>
+       </c:forEach>
+   </table>
+
+   <br>
+
+   <!-- Liste Table ClientInterlocuteur -->
+   <table class="table table-striped table-dark">
+       <tr>
+           <th scope="col" class="bg-primary">#</th>
+           <th scope="col">idClientInterlocuteur</th>
+           <th scope="col">civilite</th>
+           <th scope="col">nom</th>
+           <th scope="col">prenom</th>
+           <th scope="col">tel</th>
+           <th scope="col">email</th>
+           <th scope="col">clientId</th>
+           <th scope="col">adresseLivraisonId</th>
+       </tr>
+       <c:forEach var="clientInterlocuteur" items="${ requestScope.listeClientInterlocuteurs }" varStatus="status">
+           <tr>
+               <td class="bg-primary"><c:out value="${ pageScope.status.count }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.idClientInterlocuteur }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.civilite }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.nom }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.prenom }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.tel }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.email }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.clientId }" /></td>
+               <td><c:out value="${ pageScope.clientInterlocuteur.adresseLivraisonId }" /></td>
+           </tr>
+       </c:forEach>
+   </table>
+
+   <br>
+
    <h1>Ajouter un devis</h1>
 
     <%@ include file="../jspf/form.jspf" %>

@@ -138,7 +138,7 @@ public class EntrepriseDaoImpl implements EntrepriseDao {
         entreprise.setIdEntreprise(resultSet.getLong("id_entreprise"));
         entreprise.setSiret(resultSet.getString("siret"));
         entreprise.setRaisonSociale(resultSet.getString("raison_sociale"));
-        entreprise.setNumTva(resultSet.getString("numTva"));
+        entreprise.setNumTva(resultSet.getString("num_tva"));
         entreprise.setTel(resultSet.getString("tel"));
         entreprise.setFax(resultSet.getString("fax"));
         entreprise.setAdresseEntrepriseId(resultSet.getLong("adresse_entreprise_id"));
