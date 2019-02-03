@@ -89,8 +89,12 @@ public class DevisDaoImpl implements DevisDao {
             "facture_id ) " +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String SQL_DELETE = "DELETE FROM ? WHERE ? = ?";
+    // TODO : Pourquoi la requête préparée générique ci-dessous ne fonctionne pas ?
+    private static final String SQL_DELETE = "DELETE FROM ? WHERE ? = ?;";
 
+    private static final String SQL_DELETE_DEVIS = "DELETE FROM devis WHERE id_devis = ?;";
+
+    private static final String SQL_DELETE_FACTURE = "DELETE FROM facture WHERE id_facture = ?;";
 
     private DAOFactory daoFactory;
 
@@ -108,12 +112,13 @@ public class DevisDaoImpl implements DevisDao {
         try {
             connexion = daoFactory.getConnection();
 
+            // Cherche le devis concernée par idDevis pour récupérer le facture_id à utiliser pour supprimer facture.
             devis = this.find(idDevis);
 
             connexion.setAutoCommit(false); // Positionné ici car 2 il y 2 delete (delete devis & facture)
 
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE,
-                    false, "devis", "id_devis", idDevis);
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_DEVIS,
+                    false, idDevis);
 
             int statut = preparedStatement.executeUpdate();
             if ( statut == 0 ) {
@@ -123,7 +128,7 @@ public class DevisDaoImpl implements DevisDao {
             fermetureSilencieuse(preparedStatement);
 
             //// Delete facture : Le devis a une reference unique sur une facture (FK unique)
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, false, "facture", devis.getFactureId());
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_FACTURE, false, devis.getFactureId());
 
             preparedStatement.executeUpdate();
             ////
