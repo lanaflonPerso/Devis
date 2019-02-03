@@ -114,7 +114,6 @@ public class DevisDaoImpl implements DevisDao {
 
             preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE,
                     false, "devis", "id_devis", idDevis);
-            //preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, false);
 
             int statut = preparedStatement.executeUpdate();
             if ( statut == 0 ) {
