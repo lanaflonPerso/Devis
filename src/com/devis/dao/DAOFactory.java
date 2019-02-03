@@ -23,6 +23,9 @@ public class DAOFactory {
     private static final String PROPERTY_NOM_UTILISATEUR = "nomutilisateur";
     private static final String PROPERTY_MOT_DE_PASSE    = "motdepasse";
 
+    // Singleton
+    private static DAOFactory instance = null;
+
     // Tomcat JDBC Connection Pool
     private DataSource connectionPool = null;
 
@@ -41,6 +44,11 @@ public class DAOFactory {
         String nomUtilisateur;
         String motDePasse;
         DataSource connectionPool = null;
+
+        // Singleton
+        if(instance != null){
+            throw new DAOConfigurationException( "La ressource DAOFactory est déjà instanciée." );
+        }
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
@@ -99,7 +107,7 @@ public class DAOFactory {
          * Enregistrement du pool créé dans une variable d'instance via un appel
          * au constructeur de DAOFactory
          */
-        DAOFactory instance = new DAOFactory( connectionPool );
+        instance = new DAOFactory( connectionPool );
         return instance;
     }
 
