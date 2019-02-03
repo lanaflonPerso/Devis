@@ -13,6 +13,13 @@
 
 <header>
 
+    <!-- Définitions des constantes symboliques des URLs
+        La directive JSTL url avec "/" génère une url absolue et gère les cookies/sessions.
+        De plus la directive param transforme les caractères spéciaux en codes Html (évite injections de code) -->
+    <c:url value="/" var="URL_HOME"><c:param name="nom" value="Lebahar"/><c:param name="prenom" value="Josselin"/><c:param name="prenom" value="Florian"/></c:url>
+    <c:url value="/displayDevis" var="URL_DISPLAY_DEVIS"/>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,16 +27,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <!-- La directive Jstl url avec "/" génère une url absolue et gère les cookies/sessions.
-                De plus la directive param transforme les caractères spéciaux en codes Html (évite injections de code) -->
-                <a class="nav-item nav-link active" href="
-                    <c:url value="/">
-                        <c:param name="nom" value="Lebahar"/>
-                        <c:param name="prenom" value="Josselin"/>
-                        <c:param name="prenom" value="Florian"/>
-                    </c:url>
-                        ">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="<c:url value="/displayDevis" />">Devis</a>
+                <a class="nav-item nav-link active" href="${pageScope.URL_HOME}">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="${pageScope.URL_DISPLAY_DEVIS}">Devis</a>
             </div>
         </div>
     </nav>
