@@ -50,6 +50,9 @@ public class Delete extends HttpServlet {
                 System.out.println("nameBean Inconnu");
         }
 
+        request.setAttribute("listeDevis", this.devisDao.doList());
+        request.setAttribute("listeFactures", this.factureDao.doList());
+
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 
     }
