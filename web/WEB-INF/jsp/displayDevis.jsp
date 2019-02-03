@@ -9,7 +9,8 @@
 
    <br>
 
-    <!-- Liste Table Devis -->
+   <p class="h2"> Liste Table Devis  </p>
+
    <c:url var="URL_DELETE_MULTIPLE_DEVIS" value="/delete"/>
 
    <form method="post" action="${pageScope.URL_DELETE_MULTIPLE_DEVIS}">
@@ -58,7 +59,8 @@
 
    <br>
 
-    <!-- Liste Table Facture -->
+   <p class="h2"> Liste Table Facture  </p>
+
     <table class="table table-striped table-dark">
         <tr>
             <th scope="col" class="bg-primary">#</th>
@@ -90,7 +92,8 @@
 
    <br>
 
-   <!-- Liste Table TypeLivraison -->
+   <p class="h2"> Liste Table TypeLivraison </p>
+
    <table class="table table-striped table-dark">
        <tr>
            <th scope="col" class="bg-primary">#</th>
@@ -108,7 +111,8 @@
 
    <br>
 
-   <!-- Liste Table Entreprise -->
+   <p class="h2"> Liste Table Entreprise </p>
+
    <table class="table table-striped table-dark">
        <tr>
            <th scope="col" class="bg-primary">#</th>
@@ -136,7 +140,8 @@
 
    <br>
 
-   <!-- Liste Table EntrepriseContact -->
+   <p class="h2"> Liste Table EntrepriseContact </p>
+
    <table class="table table-striped table-dark">
        <tr>
            <th scope="col" class="bg-primary">#</th>
@@ -166,7 +171,8 @@
 
    <br>
 
-   <!-- Liste Table ClientInterlocuteur -->
+   <p class="h2"> Liste Table ClientInterlocuteur </p>
+
    <table class="table table-striped table-dark">
        <tr>
            <th scope="col" class="bg-primary">#</th>
@@ -196,7 +202,7 @@
 
    <br>
 
-   <h1>Ajouter un devis</h1>
+   <p class="h1"> Ajouter un devis </p>
 
     <%@ include file="../jspf/form.jspf" %>
 
