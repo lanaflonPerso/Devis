@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface FactureDao extends Dao<Facture> {
 
-    Facture find(Integer idFacture) throws DAOException;
+    Facture find(Long idFacture) throws DAOException;
 
     List<Facture> doList() throws DAOException;
 }

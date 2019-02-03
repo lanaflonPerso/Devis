@@ -95,9 +95,9 @@ public class FactureDaoImpl implements FactureDao {
     @Override
     public boolean create(Facture devis) throws IllegalArgumentException, DAOException { return false; }
 
-    /* Implémentation de la méthode définie dans l'interface UtilisateurDao */
+    /* Implémentation de la méthode définie dans l'interface FactureDao */
     @Override
-    public Facture find( Integer idFacture ) throws DAOException {
+    public Facture find( Long idFacture ) throws DAOException {
         return find( SQL_SELECT_PAR_IDFACTURE, idFacture );
     }
 
@@ -140,15 +140,15 @@ public class FactureDaoImpl implements FactureDao {
      */
     private static Facture map( ResultSet resultSet ) throws SQLException {
         Facture facture = new Facture();
-        facture.setIdFacture(resultSet.getInt("id_facture"));
+        facture.setIdFacture(resultSet.getLong("id_facture"));
         facture.setDateFacturation(resultSet.getDate("date_facturation"));
-        facture.setDelaiPaiementId(resultSet.getInt("delai_paiement_id"));
+        facture.setDelaiPaiementId(resultSet.getLong("delai_paiement_id"));
         facture.setDatePaiement(resultSet.getDate("date_paiement"));
         facture.setTotalHt(resultSet.getDouble("total_ht"));
         facture.setTauxTva100(resultSet.getDouble("taux_tva_100"));
         facture.setTotalTtc(resultSet.getDouble("total_ttc"));
-        facture.setStatutFactureId(resultSet.getInt("statut_facture_id"));
-        facture.setModePaiementId(resultSet.getInt("mode_paiement_id"));
+        facture.setStatutFactureId(resultSet.getLong("statut_facture_id"));
+        facture.setModePaiementId(resultSet.getLong("mode_paiement_id"));
 
         return facture;
     }

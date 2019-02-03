@@ -264,7 +264,7 @@ public class DevisDaoImpl implements DevisDao {
         return isCreateOk;
     }
 
-    /* Implémentation de la méthode définie dans l'interface UtilisateurDao */
+    /* Implémentation de la méthode définie dans l'interface DevisDao */
     @Override
     public Devis find( Long idDevis ) throws DAOException {
         return find( SQL_SELECT_PAR_IDDEVIS, idDevis );
@@ -309,16 +309,16 @@ public class DevisDaoImpl implements DevisDao {
      */
     private static Devis map( ResultSet resultSet ) throws SQLException {
         Devis devis = new Devis();
-        devis.setIdDevis(resultSet.getInt("id_devis"));
+        devis.setIdDevis(resultSet.getLong("id_devis"));
         devis.setNumDevis(resultSet.getString("num_devis"));
         devis.setDateDevis(resultSet.getDate("date_devis"));
         devis.setDateFinValidite(resultSet.getDate("date_fin_validite"));
         devis.setCommentaire(resultSet.getString("commentaire"));
-        devis.setClientInterlocuteurId(resultSet.getInt("client_interlocuteur_id"));
-        devis.setTypeLivraisonId(resultSet.getInt("type_livraison_id"));
-        devis.setEntrepriseContactId(resultSet.getInt("entreprise_contact_id"));
-        devis.setEntrepriseId(resultSet.getInt("devis.entreprise_id"));
-        devis.setFactureId(resultSet.getInt("facture_id"));
+        devis.setClientInterlocuteurId(resultSet.getLong("client_interlocuteur_id"));
+        devis.setTypeLivraisonId(resultSet.getLong("type_livraison_id"));
+        devis.setEntrepriseContactId(resultSet.getLong("entreprise_contact_id"));
+        devis.setEntrepriseId(resultSet.getLong("devis.entreprise_id"));
+        devis.setFactureId(resultSet.getLong("facture_id"));
 
         return devis;
     }
