@@ -1,17 +1,13 @@
 package com.devis.dao;
 
 import com.devis.dao.daoException.DAOConfigurationException;
-import com.devis.dao.implement.DevisDao;
-import com.devis.dao.implement.DevisDaoImpl;
-import com.devis.dao.implement.FactureDao;
-import com.devis.dao.implement.FactureDaoImpl;
+import com.devis.dao.implement.*;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -127,6 +123,18 @@ public class DAOFactory {
     }
     public FactureDao getFactureDao() {
         return new FactureDaoImpl( this );
+    }
+    public TypeLivraisonDao getTypeLivraisonDao() {
+        return new TypeLivraisonDaoImpl( this );
+    }
+    public EntrepriseDao getEntrepriseDao() {
+        return new EntrepriseDaoImpl( this );
+    }
+    public EntrepriseContactDao getEntrepriseContactDao() {
+        return new EntrepriseContactDaoImpl( this );
+    }
+    public ClientInterlocuteurDao getClientInterlocuteurDao() {
+        return new ClientInterlocuteurDaoImpl( this );
     }
 
 }
