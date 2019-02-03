@@ -10,7 +10,11 @@
    <br>
 
     <!-- Liste Table Devis -->
-    <table class="table table-responsive table-striped table-dark">
+   <c:url var="URL_DELETE_MULTIPLE_DEVIS" value="/delete"/>
+
+   <form method="post" action="${pageScope.URL_DELETE_MULTIPLE_DEVIS}">
+
+   <table class="table table-responsive table-striped table-dark">
         <tr>
             <th scope="col" class="bg-primary">#</th>
             <th scope="col">idDevis</th>
@@ -23,7 +27,8 @@
             <th scope="col">entrepriseContactId</th>
             <th scope="col">entrepriseId</th>
             <th scope="col">factureId</th>
-            <th scope="col"></th>
+            <th scope="col"><button class="btn btn-primary" type="submit">Delete</button></th>
+            <th scope="col">Single delete</th>
         </tr>
         <c:forEach var="devis" items="${ requestScope.listeDevis }" varStatus="status">
             <tr>
@@ -38,13 +43,20 @@
                 <td><c:out value="${ pageScope.devis.entrepriseContactId }" /></td>
                 <td><c:out value="${ pageScope.devis.entrepriseId }" /></td>
                 <td><c:out value="${ pageScope.devis.factureId }" /></td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input position-static" type="checkbox" name="deleteIdDevis" id="blankCheckbox" value="${ pageScope.devis.idDevis }" aria-label="...">
+                    </div>
+                </td>
                 <c:url var="URL_DELETE_SINGLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/><c:param name="idBean" value="${ pageScope.devis.idDevis }"/></c:url>
                 <td><a class="btn btn-primary" href="${URL_DELETE_SINGLE_DEVIS}" role="button">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 
-    <br>
+   </form>
+
+   <br>
 
     <!-- Liste Table Facture -->
     <table class="table table-striped table-dark">

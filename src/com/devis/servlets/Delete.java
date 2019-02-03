@@ -31,6 +31,13 @@ public class Delete extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        for( String idDevis : request.getParameterValues("deleteIdDevis") )
+            this.devisDao.delete( Long.parseLong(idDevis) );
+
+        request.setAttribute("listeDevis", this.devisDao.doList());
+        request.setAttribute("listeFactures", this.factureDao.doList());
+
+        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
