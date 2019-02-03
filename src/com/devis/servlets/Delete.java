@@ -38,6 +38,7 @@ public class Delete extends HttpServlet {
         String nameBean = request.getParameter("nameBean");
         Long idBean = Long.parseLong(request.getParameter("idBean"));
 
+        // TODO : Modifier des ressources dans un GET est contraire au principe MVC
         switch(nameBean) {
             case "devis":
                 this.devisDao.delete(idBean);

@@ -115,6 +115,10 @@ public class DevisDaoImpl implements DevisDao {
             // Cherche le devis concernée par idDevis pour récupérer le facture_id à utiliser pour supprimer facture.
             // On aurait pu passer factureId en paramétre de delete mais ça aurait été moins générique.
             devis = this.find(idDevis);
+            if(devis == null)
+            {
+                throw new DAOException( "Échec de la suppression du devis, le devis recherché n'existe pas." );
+            }
 
             connexion.setAutoCommit(false); // Positionné ici car 2 il y 2 delete (delete devis & facture)
 
@@ -128,6 +132,8 @@ public class DevisDaoImpl implements DevisDao {
             fermetureSilencieuse(preparedStatement);
 
             //// Delete facture : Le devis a une reference unique sur une facture (FK unique)
+            // TODO : On ne peut pas utiliser la méthode delete de Facture car la suppression serait commitée individuellement (cf. transactions imbriquées MySql)
+            // Néanmoins comme ici il s'agit de la dernière requête (suppose que les précédentes sont ok) ça serait envisageable
             preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_FACTURE, false, devis.getFactureId());
 
             preparedStatement.executeUpdate();
@@ -203,6 +209,11 @@ public class DevisDaoImpl implements DevisDao {
             connexion.setAutoCommit(false); // Positionné ici car 2 il y 2 insert (Fake insert facture)
 
             //// Fake insert facture : Créer un enregistrement factice de 'facture' pour permettre l'enreg de 'devis' (FK unique)
+            // TODO : On ne peut pas utiliser la méthode insert de Facture car le insert serait commité individuellement
+            //  Cf. transactions imbriquées(nested) MySql, save points & rollback, implicit commit (ex: un START_TRANSACTION est un implicit commit)
+            //  -> Q: setAutoCommit(false) est-il un implicit commit ?
+            //  A priori non d'après https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
+            //  Néanmoins l'appel de la méthode facture/create impliquerait un commit rendant un rollback inopérant à moins de rajouter un param "doNotCommit".
             preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_FAKE_FACTURE, true);
 
             preparedStatement.executeUpdate();
