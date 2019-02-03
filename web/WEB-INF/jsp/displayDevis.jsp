@@ -10,8 +10,6 @@
    <br>
 
     <!-- Liste Table Devis -->
-   <c:url var="URL_DELETE_SINGLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/><c:param name="idBean" value="${ pageScope.devis.idDevis }"/></c:url>
-
     <table class="table table-responsive table-striped table-dark">
         <tr>
             <th scope="col" class="bg-primary">#</th>
@@ -40,6 +38,7 @@
                 <td><c:out value="${ pageScope.devis.entrepriseContactId }" /></td>
                 <td><c:out value="${ pageScope.devis.entrepriseId }" /></td>
                 <td><c:out value="${ pageScope.devis.factureId }" /></td>
+                <c:url var="URL_DELETE_SINGLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/><c:param name="idBean" value="${ pageScope.devis.idDevis }"/></c:url>
                 <td><a class="btn btn-primary" href="${URL_DELETE_SINGLE_DEVIS}" role="button">Delete</a></td>
             </tr>
         </c:forEach>
