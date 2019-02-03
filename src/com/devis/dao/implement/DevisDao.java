@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface DevisDao extends Dao<Devis> {
 
-    Devis find(String numDevis) throws DAOException;
+    Devis find(Long idDevis) throws DAOException;
 
     List<Devis> doList() throws DAOException;
 }

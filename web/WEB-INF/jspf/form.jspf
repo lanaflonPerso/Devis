@@ -95,7 +95,7 @@
     </script>
 </head>
 <body>
-<form class="jotform-form" action="${pageContext.request.contextPath}/devis" method="post" name="form_90247793343361" id="90247793343361" accept-charset="utf-8">
+<form class="jotform-form" action="<c:url value="/display" />" method="post" name="form_90247793343361" id="90247793343361" accept-charset="utf-8">
     <input type="hidden" name="formID" value="90247793343361" />
     <div class="form-all">
         <link type="text/css" rel="stylesheet" media="all" href="https://cdn.jotfor.ms/wizards/languageWizard/custom-dropdown/css/lang-dd.css?3.3.9632" />

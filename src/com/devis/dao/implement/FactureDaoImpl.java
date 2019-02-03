@@ -51,7 +51,7 @@ public class FactureDaoImpl implements FactureDao {
     }
 
     @Override
-    public boolean delete(Facture facture) throws IllegalArgumentException, DAOException { return false; }
+    public boolean delete(Long idFacture) throws IllegalArgumentException, DAOException { return false; }
 
     @Override
     public boolean update(Facture facture) throws IllegalArgumentException, DAOException { return false; }

@@ -6,7 +6,7 @@ public interface Dao<T> {
 
     public boolean create(T obj) throws DAOException;
 
-    public boolean delete(T obj) throws DAOException;
+    public boolean delete(Long idObj) throws DAOException;
 
     public boolean update(T obj) throws DAOException;
 

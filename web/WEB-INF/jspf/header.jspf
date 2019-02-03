@@ -29,7 +29,7 @@
                         <c:param name="prenom" value="Florian"/>
                     </c:url>
                         ">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="<c:url value="/devis" />">Devis</a>
+                <a class="nav-item nav-link" href="<c:url value="/display" />">Display</a>
             </div>
         </div>
     </nav>

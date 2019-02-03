@@ -2,7 +2,7 @@
 
 <head>
     <title>Accueil</title>
-    <link href="${pageContext.request.contextPath}/ressources/CSS/pageAccueil.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/ressources/CSS/home.css"/>" rel="stylesheet" type="text/css">
 </head>
 
 <body>

@@ -2,15 +2,15 @@
 
 <head>
     <title>Devis</title>
-    <link href="${pageContext.request.contextPath}/ressources/CSS/pageDevis.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/ressources/CSS/display.css"/>" rel="stylesheet" type="text/css">
 </head>
 
 <body id="pageDevisBody">
 
    <br>
 
-    <!-- Liste Table Devis -->
-    <table class="table table-striped table-dark">
+    <!-- Liste Table Display -->
+    <table class="table table-responsive table-striped table-dark">
         <tr>
             <th scope="col" class="bg-primary">#</th>
             <th scope="col">idDevis</th>
@@ -23,6 +23,7 @@
             <th scope="col">entrepriseContactId</th>
             <th scope="col">entrepriseId</th>
             <th scope="col">factureId</th>
+            <th scope="col"></th>
         </tr>
         <c:forEach var="devis" items="${ requestScope.listeDevis }" varStatus="status">
             <tr>
@@ -37,6 +38,12 @@
                 <td><c:out value="${ pageScope.devis.entrepriseContactId }" /></td>
                 <td><c:out value="${ pageScope.devis.entrepriseId }" /></td>
                 <td><c:out value="${ pageScope.devis.factureId }" /></td>
+                <td><a class="btn btn-primary" href="
+                    <c:url value="/delete">
+                        <c:param name="nameBean" value="devis"/>
+                        <c:param name="idBean" value="${ pageScope.devis.idDevis }"/>
+                    </c:url>
+                    " role="button">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

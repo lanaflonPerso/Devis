@@ -14,7 +14,7 @@ import static com.devis.dao.DAOUtilitaire.*;
 
 public class DevisDaoImpl implements DevisDao {
 
-    private static final String SQL_SELECT_PAR_NUMDEVIS =
+    private static final String SQL_SELECT_PAR_IDDEVIS =
             "SELECT \n" +
                     "id_devis,\n" +
                     "num_devis,\n" +
@@ -36,7 +36,7 @@ public class DevisDaoImpl implements DevisDao {
                     "on facture.id_facture = devis.facture_id\n" +
                     "inner join type_livraison\n" +
                     "on type_livraison.id_type_livraison = devis.type_livraison_id\n" +
-                    "WHERE numDevis = ?";
+                    "WHERE id_devis = ?";
 
 
 
@@ -89,6 +89,7 @@ public class DevisDaoImpl implements DevisDao {
             "facture_id ) " +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+    private static final String SQL_DELETE = "DELETE FROM ? WHERE ? = ?";
 
 
     private DAOFactory daoFactory;
@@ -98,7 +99,53 @@ public class DevisDaoImpl implements DevisDao {
     }
 
     @Override
-    public boolean delete(Devis devis) throws IllegalArgumentException, DAOException { return false; }
+    public boolean delete(Long idDevis) throws IllegalArgumentException, DAOException {
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        Devis devis = null;
+        boolean isDeleteOk = false;
+
+        try {
+            connexion = daoFactory.getConnection();
+
+            devis = this.find(idDevis);
+
+            connexion.setAutoCommit(false); // Positionné ici car 2 il y 2 delete (delete devis & facture)
+
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE,
+                    false, "devis", "id_devis", idDevis);
+            //preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, false);
+
+            int statut = preparedStatement.executeUpdate();
+            if ( statut == 0 ) {
+                throw new DAOException( "Échec de la suppression du devis, aucune ligne supprimée dans la table." );
+            }
+
+            fermetureSilencieuse(preparedStatement);
+
+            //// Delete facture : Le devis a une reference unique sur une facture (FK unique)
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, false, "facture", devis.getFactureId());
+
+            preparedStatement.executeUpdate();
+            ////
+
+            connexion.commit(); //Si connexion.setAutoCommit(false);
+
+            isDeleteOk = true;
+
+        } catch ( SQLNonTransientConnectionException e ) {
+            // Exception silencieuse
+            System.out.println(e);
+
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+
+        } finally {
+            fermeturesSilencieuses( preparedStatement, connexion );
+        }
+
+        return isDeleteOk;
+    }
 
     @Override
     public boolean update(Devis devis) throws IllegalArgumentException, DAOException { return false; }
@@ -204,8 +251,8 @@ public class DevisDaoImpl implements DevisDao {
 
     /* Implémentation de la méthode définie dans l'interface UtilisateurDao */
     @Override
-    public Devis find( String numDevis ) throws DAOException {
-        return find( SQL_SELECT_PAR_NUMDEVIS, numDevis );
+    public Devis find( Long idDevis ) throws DAOException {
+        return find( SQL_SELECT_PAR_IDDEVIS, idDevis );
     }
 
     /*
