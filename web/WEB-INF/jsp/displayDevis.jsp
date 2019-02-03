@@ -59,6 +59,12 @@
 
    <br>
 
+   <p class="h1"> Ajouter un devis </p>
+
+   <%@ include file="../jspf/form2.jspf" %>
+
+   <br>
+
    <p class="h2"> Liste Table Facture  </p>
 
     <table class="table table-striped table-dark">
@@ -204,7 +210,7 @@
 
    <p class="h1"> Ajouter un devis </p>
 
-    <%@ include file="../jspf/form.jspf" %>
+   <%@ include file="../jspf/form.jspf" %>
 
 </body>
 </html>
