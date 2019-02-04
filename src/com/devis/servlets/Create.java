@@ -50,7 +50,8 @@ public class Create extends HttpServlet {
 
         /* Récupération des entrées du formulaire */
         Integer NUM_DEVIS_MAX_CHAR = 10;
-        devis.setNumDevis( request.getParameter("numDevis").substring(0, NUM_DEVIS_MAX_CHAR) );
+        String numDevis = request.getParameter("numDevis");
+        devis.setNumDevis( numDevis.substring(0, Math.min(NUM_DEVIS_MAX_CHAR, numDevis.length() )));
         devis.setClientInterlocuteurId( Long.parseLong( request.getParameter("clientInterlocuteurId") ) );
         devis.setTypeLivraisonId( Long.parseLong( request.getParameter("typeLivraisonId") ) );
         devis.setCommentaire( request.getParameter("commentaire") );
