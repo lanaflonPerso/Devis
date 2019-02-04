@@ -6,13 +6,27 @@
 
 </head>
 
+<!-- TODO : L'asterisk ne s'affiche pas après le label (y compris en ajoutant une classe dans le label) -->
+<style>
+    .form-control.required label:after {
+        content:"*";
+        color:red;
+    }
+</style>
+
 <c:url var="URL_CREATE_DEVIS" value="/create"/>
 
-<form method="post" action="${pageScope.URL_CREATE_DEVIS}>
+<form class="needs-validation" method="post" action="${pageScope.URL_CREATE_DEVIS} novalidate>
 
     <div class="form-group">
         <label for="numDevis">numDevis</label>
-        <input type="text" class="form-control" id="numDevis" name="numDevis" placeholder="10 digits max" required="true">
+        <input type="text" class="form-control" id="numDevis" name="numDevis" placeholder="10 digits max" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Looks not good!
+        </div>
     </div>
 
     <div class="form-group">
@@ -22,38 +36,62 @@
 
     <div class="form-group">
         <label for="clientInterlocuteurId">clientInterlocuteurId</label>
-        <select class="form-control" id="clientInterlocuteurId" name="clientInterlocuteurId" required="true">
+        <select class="form-control" id="clientInterlocuteurId" name="clientInterlocuteurId" required>
             <c:forEach var="clientInterlocuteur" items="${ requestScope.listeClientInterlocuteurs }" varStatus="status">
                 <option>${pageScope.clientInterlocuteur.civilite} ${pageScope.clientInterlocuteur.nom} ${pageScope.clientInterlocuteur.prenom}</option>
             </c:forEach>
         </select>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Looks not good!
+        </div>
     </div>
 
     <div class="form-group">
         <label for="typeLivraisonId">typeLivraisonId</label>
-        <select class="form-control" id="typeLivraisonId" name="typeLivraisonId" required="true">
+        <select class="form-control" id="typeLivraisonId" name="typeLivraisonId" required>
             <c:forEach var="typeLivraison" items="${ requestScope.listeTypesLivraison }" varStatus="status">
                 <option>${pageScope.typeLivraison.libelle}</option>
             </c:forEach>
         </select>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Looks not good!
+        </div>
     </div>
 
     <div class="form-group">
         <label for="entrepriseContactId">entrepriseContactId</label>
-        <select class="form-control" id="entrepriseContactId" name="entrepriseContactId" required="true">
+        <select class="form-control" id="entrepriseContactId" name="entrepriseContactId" required>
             <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
                 <option>${ pageScope.entrepriseContact.civilite } ${ pageScope.entrepriseContact.nom } ${ pageScope.entrepriseContact.prenom }</option>
             </c:forEach>
         </select>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Looks not good!
+        </div>
     </div>
 
     <div class="form-group">
         <label for="entrepriseId">entrepriseId</label>
-        <select class="form-control" id="entrepriseId" name="entrepriseId" required="true">
+        <select class="form-control" id="entrepriseId" name="entrepriseId" required>
             <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }" varStatus="status">
                 <option>${ pageScope.entreprise.raisonSociale }</option>
             </c:forEach>
         </select>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Looks not good!
+        </div>
     </div>
 
     <script>
@@ -63,12 +101,18 @@
 
     <div class="dates">
         <div class="start_date input-group mb-4">
-            <input class="form-control start_date" type="text" placeholder="dateDevis" id="startdate_datepicker" name="dateDevis">
+            <input class="form-control start_date" type="text" placeholder="dateDevis" id="startdate_datepicker" name="dateDevis" required>
             <div class="input-group-append">
                 <span class="fa fa-calendar input-group-text start_date_calendar" aria-hidden="true "></span>
             </div>
-
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Looks not good!
+            </div>
         </div>
+
         <div class="end_date input-group mb-4">
             <input class="form-control end_date" type="text" placeholder="dateFinValidite" id="enddate_datepicker" name="dateFinValidite">
             <div class="input-group-append">
@@ -80,4 +124,25 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 
