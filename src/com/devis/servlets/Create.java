@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "Create")
 public class Create extends HttpServlet {
@@ -47,16 +49,20 @@ public class Create extends HttpServlet {
         Devis devis = new Devis();
 
         /* Récupération des entrées du formulaire */
-        devis.setNumDevis( request.getParameter("numDevis") );
-        java.sql.Date date = Date.valueOf( request.getParameter("dateDevis") );
-        devis.setDateDevis( date );
-        date = Date.valueOf ( request.getParameter("dateFinValidite") );
-        devis.setDateFinValidite( date );
-        devis.setCommentaire( request.getParameter("commentaire") );
+        Integer NUM_DEVIS_MAX_CHAR = 10;
+        devis.setNumDevis( request.getParameter("numDevis").substring(0, NUM_DEVIS_MAX_CHAR) );
         devis.setClientInterlocuteurId( Long.parseLong( request.getParameter("clientInterlocuteurId") ) );
         devis.setTypeLivraisonId( Long.parseLong( request.getParameter("typeLivraisonId") ) );
+        devis.setCommentaire( request.getParameter("commentaire") );
         devis.setEntrepriseContactId( Long.parseLong( request.getParameter("entrepriseContactId") ) );
         devis.setEntrepriseId(Long.parseLong( request.getParameter("entrepriseId")) );
+
+        /* Récupération des entrées date du formulaire */
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate date = LocalDate.parse(request.getParameter("dateDevis"), formatter);
+        devis.setDateDevis(Date.valueOf(date));
+        date = LocalDate.parse(request.getParameter("dateFinValidite"), formatter);
+        devis.setDateFinValidite(Date.valueOf(date));
 
         // Insertion en bdd du devis renseigné par le formulaire
         this.devisDao.create(devis);
