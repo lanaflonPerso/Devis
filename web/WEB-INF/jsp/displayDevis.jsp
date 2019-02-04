@@ -15,7 +15,7 @@
 
    <form method="post" action="${pageScope.URL_DELETE_MULTIPLE_DEVIS}">
 
-   <table class="table table-responsive table-striped table-dark">
+   <table class="table table-responsive table-striped table-dark table-hover">
         <tr>
             <th scope="col" class="bg-primary">#</th>
             <th scope="col">idDevis</th>
@@ -63,11 +63,11 @@
 
    <%@ include file="../jspf/form2.jspf" %>
 
-   <br>
+   <br><br>
 
    <p class="h2"> Liste Table Facture  </p>
 
-    <table class="table table-striped table-dark">
+    <table class="table table-striped table-dark table-hover">
         <tr>
             <th scope="col" class="bg-primary">#</th>
             <th scope="col">idFacture</th>
@@ -100,7 +100,7 @@
 
    <p class="h2"> Liste Table TypeLivraison </p>
 
-   <table class="table table-striped table-dark">
+   <table class="table table-striped table-dark table-hover">
        <tr>
            <th scope="col" class="bg-primary">#</th>
            <th scope="col">idTypeLivraison</th>
@@ -119,7 +119,7 @@
 
    <p class="h2"> Liste Table Entreprise </p>
 
-   <table class="table table-striped table-dark">
+   <table class="table table-striped table-dark table-hover">
        <tr>
            <th scope="col" class="bg-primary">#</th>
            <th scope="col">idEntreprise</th>
@@ -148,7 +148,7 @@
 
    <p class="h2"> Liste Table EntrepriseContact </p>
 
-   <table class="table table-striped table-dark">
+   <table class="table table-striped table-dark table-hover">
        <tr>
            <th scope="col" class="bg-primary">#</th>
            <th scope="col">idEntrepriseContact</th>
@@ -179,7 +179,7 @@
 
    <p class="h2"> Liste Table ClientInterlocuteur </p>
 
-   <table class="table table-striped table-dark">
+   <table class="table table-striped table-dark table-hover">
        <tr>
            <th scope="col" class="bg-primary">#</th>
            <th scope="col">idClientInterlocuteur</th>
