@@ -16,7 +16,7 @@
 
 <c:url var="URL_CREATE_DEVIS" value="/create"/>
 
-<form class="needs-validation" method="post" action="${pageScope.URL_CREATE_DEVIS} novalidate>
+<form class="needs-validation" method="post" action="${pageScope.URL_CREATE_DEVIS}" novalidate>
 
     <div class="form-group">
         <label for="numDevis">numDevis</label>
