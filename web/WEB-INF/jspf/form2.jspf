@@ -37,6 +37,7 @@
     <div class="form-group">
         <label for="clientInterlocuteurId">clientInterlocuteurId</label>
         <select class="form-control" id="clientInterlocuteurId" name="clientInterlocuteurId" required>
+            <option value="" selected disabled>Please select</option>
             <c:forEach var="clientInterlocuteur" items="${ requestScope.listeClientInterlocuteurs }" varStatus="status">
                 <option>${pageScope.clientInterlocuteur.civilite} ${pageScope.clientInterlocuteur.nom} ${pageScope.clientInterlocuteur.prenom}</option>
             </c:forEach>
@@ -52,6 +53,7 @@
     <div class="form-group">
         <label for="typeLivraisonId">typeLivraisonId</label>
         <select class="form-control" id="typeLivraisonId" name="typeLivraisonId" required>
+            <option value="" selected disabled>Please select</option>
             <c:forEach var="typeLivraison" items="${ requestScope.listeTypesLivraison }" varStatus="status">
                 <option>${pageScope.typeLivraison.libelle}</option>
             </c:forEach>
@@ -67,6 +69,7 @@
     <div class="form-group">
         <label for="entrepriseContactId">entrepriseContactId</label>
         <select class="form-control" id="entrepriseContactId" name="entrepriseContactId" required>
+            <option value="" selected disabled>Please select</option>
             <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
                 <option>${ pageScope.entrepriseContact.civilite } ${ pageScope.entrepriseContact.nom } ${ pageScope.entrepriseContact.prenom }</option>
             </c:forEach>
@@ -82,6 +85,7 @@
     <div class="form-group">
         <label for="entrepriseId">entrepriseId</label>
         <select class="form-control" id="entrepriseId" name="entrepriseId" required>
+            <option value="" selected disabled>Please select</option>
             <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }" varStatus="status">
                 <option>${ pageScope.entreprise.raisonSociale }</option>
             </c:forEach>
@@ -99,6 +103,7 @@
         $("#enddate_datepicker" ).datepicker();
     </script>
 
+    <!-- TODO : Le date picker ne fonctionne pas (prb d'incompatibilité avec Bootstrap 4 ?) -->
     <div class="dates">
         <div class="start_date input-group mb-4">
             <input class="form-control start_date" type="text" placeholder="dateDevis" id="startdate_datepicker" name="dateDevis" required>
