@@ -98,12 +98,12 @@
         </div>
     </div>
 
+    <!-- TODO : Le date picker ne fonctionne pas (prb d'incompatibilité avec Bootstrap 4 ?) -->
     <script>
         $("#startdate_datepicker").datepicker();
         $("#enddate_datepicker" ).datepicker();
     </script>
 
-    <!-- TODO : Le date picker ne fonctionne pas (prb d'incompatibilité avec Bootstrap 4 ?) -->
     <div class="dates">
         <div class="start_date input-group mb-4">
             <input class="form-control start_date" type="text" placeholder="dateDevis" id="startdate_datepicker" name="dateDevis" required>
