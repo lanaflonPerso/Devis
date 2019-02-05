@@ -71,10 +71,10 @@
         <select onChange="getEntrepriseId();" class="form-control" id="entrepriseContactIndex" name="entrepriseContactIndex" required>
             <option value="" selected disabled>Please select</option>
             <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }">
-                <option value="${pageScope.entreprise.idEntreprise}" disabled id="hiddenEntrepriseId">"${pageScope.entreprise.raisonSociale}"</option>
+                <option value="${pageScope.entreprise.idEntreprise}" disabled >${pageScope.entreprise.raisonSociale}</option>
                 <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
                     <c:if test="${ pageScope.entrepriseContact.entrepriseId == pageScope.entreprise.idEntreprise }">
-                        <option id="selectedEntrepriseContact" value="${status.index}">${ pageScope.entrepriseContact.civilite } ${ pageScope.entrepriseContact.nom } ${ pageScope.entrepriseContact.prenom }</option>
+                        <option value="${status.index}">${ pageScope.entrepriseContact.civilite } ${ pageScope.entrepriseContact.nom } ${ pageScope.entrepriseContact.prenom }</option>
                     </c:if>
                 </c:forEach>
             </c:forEach>
