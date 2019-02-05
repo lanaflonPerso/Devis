@@ -42,9 +42,24 @@ public class Delete extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        for( String idDevis : request.getParameterValues("deleteIdDevis") )
-            this.devisDao.delete( Long.parseLong(idDevis) );
+        // Récupére le nom du Bean.
+        String nameBean = request.getParameter("nameBean");
 
+        switch(nameBean) {
+            case "devis":
+
+                // Multiple deletes
+                for( String idDevis : request.getParameterValues("deleteIdDevis") )
+                    this.devisDao.delete( Long.parseLong(idDevis) );
+
+                break;
+            case "facture":
+                break;
+            default:
+                System.out.println("nameBean Inconnu");
+        }
+
+        // Generate Beans tables mapping lists
         this.doList(request);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
@@ -52,6 +67,7 @@ public class Delete extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // Récupére le nom du Bean et son identifiant.
         String nameBean = request.getParameter("nameBean");
         Long idBean = Long.parseLong(request.getParameter("idBean"));
 
@@ -59,15 +75,14 @@ public class Delete extends HttpServlet {
         switch(nameBean) {
             case "devis":
                 this.devisDao.delete(idBean);
-                System.out.println("Delete Devis");
                 break;
             case "facture":
-                System.out.println("Delete Facture");
                 break;
             default:
                 System.out.println("nameBean Inconnu");
         }
 
+        // Generate Beans tables mapping lists
         this.doList(request);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);

@@ -1,9 +1,6 @@
 package com.devis.dao.implement;
 
 import com.devis.beans.ClientInterlocuteur;
-import com.devis.beans.Entreprise;
-import com.devis.beans.EntrepriseContact;
-import com.devis.beans.TypeLivraison;
 import com.devis.dao.DAOFactory;
 import com.devis.dao.daoException.DAOException;
 

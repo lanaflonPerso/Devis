@@ -17,9 +17,10 @@
 
 <div class="container">
 
-<c:url var="URL_CREATE_DEVIS" value="/create"/>
+    <!-- TODO : est-il mieux de passer le param de la requête via un hidden input ? -->
+    <c:url var="URL_CREATE_DEVIS" value="/create"><c:param name="nameBean" value="devis"/></c:url>
 
-<form class="needs-validation" method="post" action="${pageScope.URL_CREATE_DEVIS}" novalidate>
+    <form class="needs-validation" method="post" action="${pageScope.URL_CREATE_DEVIS}" novalidate>
 
     <div class="form-group" required>
         <label for="numDevis">numDevis</label>

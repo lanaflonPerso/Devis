@@ -46,9 +46,70 @@ public class Create extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // Récupére le nom du Bean passé en paramétre
+        String nameBean = request.getParameter("nameBean");
+
+        switch(nameBean) {
+
+            case "devis":
+                this.createDevis(request);
+                break;
+            case "facture":
+                break;
+            default:
+                System.out.println("nameBean Inconnu");
+        }
+
+        // Generate Beans tables mapping lists
+        this.doList(request);
+
+        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Récupére le nom du Bean.
+        String nameBean = request.getParameter("nameBean");
+
+        // TODO : Modifier des ressources dans un GET est contraire au principe MVC
+        switch(nameBean) {
+
+            case "devis":
+                break;
+            case "facture":
+                break;
+            default:
+                System.out.println("nameBean Inconnu");
+        }
+
+        // Generate Beans tables mapping lists
+        this.doList(request);
+
+        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+    }
+
+    /** Create lists of Beans mapping */
+    private void doList( HttpServletRequest request )
+    {
+        request.setAttribute("listeDevis", this.devisDao.doList());
+        request.setAttribute("listeFactures", this.factureDao.doList());
+        request.setAttribute("listeTypesLivraison", this.typeLivraisonDao.doList());
+        request.setAttribute("listeEntreprises", this.entrepriseDao.doList());
+        request.setAttribute("listeEntrepriseContacts", this.entrepriseContactDao.doList());
+        request.setAttribute("listeClientInterlocuteurs", this.clientInterlocuteurDao.doList());
+    }
+
+    /** Create devis from the inputs of the form */
+    private void createDevis( HttpServletRequest request ){
+
         Devis devis = new Devis();
 
         /* Récupération des entrées du formulaire */
+        /* TODO : Utiliser la lib Apache Commons Lang NumberUtils (ex: toLong) pour les entrées vides "" et les entrées NULL */
+        /* TODO : Modifier les types primitifs des Beans pour des types wrapper acceptant les NULL */
+        /* TODO : Utiliser méthode getValeurChamp avec private static final CHAMP_X */
+        /* TODO : Utiliser la lib Apache Commons BeanUtils -> BeanUtils.populate(bean, request.getParameterMap()); */
+        /* TODO : Utiliser les objets implicites EL (ex:initParam) pour pouvoir utiliser la lib Apache Commons BeanUtils */
         Integer NUM_DEVIS_MAX_CHAR = 10;
         String numDevis = request.getParameter("numDevis");
         devis.setNumDevis( numDevis.substring(0, Math.min(NUM_DEVIS_MAX_CHAR, numDevis.length() )));
@@ -67,43 +128,5 @@ public class Create extends HttpServlet {
 
         // Insertion en bdd du devis renseigné par le formulaire
         this.devisDao.create(devis);
-
-        this.doList(request);
-
-        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String nameBean = request.getParameter("nameBean");
-        Long idBean = Long.parseLong(request.getParameter("idBean"));
-
-        // TODO : Modifier des ressources dans un GET est contraire au principe MVC
-        switch(nameBean) {
-            case "devis":
-                this.devisDao.delete(idBean);
-                System.out.println("Delete Devis");
-                break;
-            case "facture":
-                System.out.println("Delete Facture");
-                break;
-            default:
-                System.out.println("nameBean Inconnu");
-        }
-
-        this.doList(request);
-
-        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
-
-    }
-
-    private void doList( HttpServletRequest request )
-    {
-        request.setAttribute("listeDevis", this.devisDao.doList());
-        request.setAttribute("listeFactures", this.factureDao.doList());
-        request.setAttribute("listeTypesLivraison", this.typeLivraisonDao.doList());
-        request.setAttribute("listeEntreprises", this.entrepriseDao.doList());
-        request.setAttribute("listeEntrepriseContacts", this.entrepriseContactDao.doList());
-        request.setAttribute("listeClientInterlocuteurs", this.clientInterlocuteurDao.doList());
     }
 }
