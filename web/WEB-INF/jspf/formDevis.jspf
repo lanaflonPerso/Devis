@@ -35,8 +35,8 @@
     </div>
 
     <div class="form-group">
-        <label for="clientInterlocuteurId">clientInterlocuteurId</label>
-        <select class="form-control" id="clientInterlocuteurId" name="clientInterlocuteurId" required>
+        <label for="clientInterlocuteur">clientInterlocuteurId</label>
+        <select class="form-control" id="clientInterlocuteur" name="clientInterlocuteurId" required>
             <option value="" selected disabled>Please select</option>
             <c:forEach var="clientInterlocuteur" items="${ requestScope.listeClientInterlocuteurs }" varStatus="status">
                 <option value="${pageScope.clientInterlocuteur.idClientInterlocuteur}">${pageScope.clientInterlocuteur.civilite} ${pageScope.clientInterlocuteur.nom} ${pageScope.clientInterlocuteur.prenom}</option>
@@ -51,8 +51,8 @@
     </div>
 
     <div class="form-group">
-        <label for="typeLivraisonId">typeLivraisonId</label>
-        <select class="form-control" id="typeLivraisonId" name="typeLivraisonId" required>
+        <label for="typeLivraison">typeLivraisonId</label>
+        <select class="form-control" id="typeLivraison" name="typeLivraisonId" required>
             <option value="" selected disabled>Please select</option>
             <c:forEach var="typeLivraison" items="${ requestScope.listeTypesLivraison }" varStatus="status">
                 <option value="${pageScope.typeLivraison.idTypeLivraison}">${pageScope.typeLivraison.libelle}</option>
@@ -67,7 +67,7 @@
     </div>
 
     <div class="form-group">
-        <label for="entrepriseContactIndex">entrepriseContactId</label>
+        <label for="entrepriseContactIndex">entrepriseContact</label>
         <select onChange="getEntrepriseId();" class="form-control" id="entrepriseContactIndex" name="entrepriseContactIndex" required>
             <option value="" selected disabled>Please select</option>
             <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }">
