@@ -22,6 +22,8 @@ public class Create extends HttpServlet {
     public void init() {
 
         // TODO : voir s'il est préférable d'instancier un singleton (moins de mémoire que multiples instances de classes statiques)
+        // TODO : vérifier qu'il y bien une seule instance dans l'application
+        //  (peut-être que chaque servlet instancie une classe static auquel cas les verif isInirialized sont inutiles)
         DAOBeanLoader.init( getServletContext() );
     }
 
@@ -98,5 +100,18 @@ public class Create extends HttpServlet {
 
         // Insertion en bdd du devis renseigné par le formulaire
         DAOBeanLoader.getDevisDao().create(devis);
+    }
+
+    /* Méthode utilitaire qui retourne null si un champ est vide, et son contenu sinon.*/
+    /* TODO : créer une classe utilitaire avec méthodes statiques */
+    private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {
+
+        String valeur = request.getParameter( nomChamp );
+
+        if ( valeur == null || valeur.trim().length() == 0 ) {
+            return null;
+        } else {
+            return valeur;
+        }
     }
 }
