@@ -67,15 +67,14 @@
     </div>
 
     <div class="form-group">
-        <label for="entrepriseContactId">entrepriseContactId</label>
-        <select onChange="getEntrepriseId();" class="form-control" id="entrepriseContactId" name="entrepriseContactId" required>
+        <label for="entrepriseContactIndex">entrepriseContactId</label>
+        <select onChange="getEntrepriseId();" class="form-control" id="entrepriseContactIndex" name="entrepriseContactIndex" required>
             <option value="" selected disabled>Please select</option>
-            <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }" varStatus="status">
-                <!-- <input type="hidden" id="idEntreprise" name="idEntreprise" value="${pageScope.entreprise.idEntreprise}"> -->
+            <c:forEach var="entreprise" items="${ requestScope.listeEntreprises }">
                 <option value="${pageScope.entreprise.idEntreprise}" disabled id="hiddenEntrepriseId">"${pageScope.entreprise.raisonSociale}"</option>
                 <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
                     <c:if test="${ pageScope.entrepriseContact.entrepriseId == pageScope.entreprise.idEntreprise }">
-                        <option value="${pageScope.entrepriseContact.idEntrepriseContact}">${ pageScope.entrepriseContact.civilite } ${ pageScope.entrepriseContact.nom } ${ pageScope.entrepriseContact.prenom }</option>
+                        <option id="selectedEntrepriseContact" value="${status.index}">${ pageScope.entrepriseContact.civilite } ${ pageScope.entrepriseContact.nom } ${ pageScope.entrepriseContact.prenom }</option>
                     </c:if>
                 </c:forEach>
             </c:forEach>
@@ -87,6 +86,11 @@
             Looks not good!
         </div>
     </div>
+
+    <!--  Cf. fonction javascript getEntrepriseId() -->
+    <!-- Rappel : idEntrepriseContact est un index relatif à entrepriseId dans la table entrepriseContact. -->
+    <input type="hidden" id="entrepriseId" name="entrepriseId">
+    <input type="hidden" id="entrepriseContactId" name="entrepriseContactId">
 
     <!-- TODO : Le date picker ne fonctionne pas (prb d'incompatibilité avec Bootstrap 4 ?) -->
     <script>
@@ -116,9 +120,7 @@
         </div>
     </div>
 
-    <input type="hidden" id="entrepriseId" name="entrepriseId">
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" >Submit</button>
 
 </form>
 
@@ -142,12 +144,30 @@
         }, false);
     })();
 
+    // Récupère entrepriseId et idEntrepriseContact de listeEntrepriseContacts à partir de l'index sélectionné dans le formulaire
+    // et les positionne respectivement dans les éléments cachés name="entrepriseId" et name="entrepriseContactId"
+    // qui sont récupérés dans le doPost de la servlet.
+    // Rappel : idEntrepriseContact est un index relatif à entrepriseId dans la table entrepriseContact.
     function getEntrepriseId()
     {
-        var entrepriseId = document.getElementById("hiddenEntrepriseId");
-        alert(entrepriseId);
-        document.getElementById("entrepriseId").value = entrepriseId.options[entrepriseId.selectedIndex].value;
-    }
+        var entrepriseIdArray = new Array();
+        var idEntrepriseContactArray = new Array();
 
+
+        <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
+
+            entrepriseIdArray[${status.index}] = "${entrepriseContact.entrepriseId}";
+            idEntrepriseContactArray[${status.index}] = "${entrepriseContact.idEntrepriseContact}";
+
+        </c:forEach>
+
+
+        var entrepriseContactIndex = document.getElementById("entrepriseContactIndex").value;
+        var entrepriseId = entrepriseIdArray[entrepriseContactIndex];
+        var idEntrepriseContact = idEntrepriseContactArray[entrepriseContactIndex];
+
+        document.getElementById("entrepriseId").value = entrepriseId;
+        document.getElementById("entrepriseContactId").value = idEntrepriseContact;
+    }
 </script>
 
