@@ -153,15 +153,13 @@
         var entrepriseIdArray = new Array();
         var idEntrepriseContactArray = new Array();
 
-
         <c:forEach var="entrepriseContact" items="${ requestScope.listeEntrepriseContacts }" varStatus="status">
 
             entrepriseIdArray[${status.index}] = "${entrepriseContact.entrepriseId}";
             idEntrepriseContactArray[${status.index}] = "${entrepriseContact.idEntrepriseContact}";
 
         </c:forEach>
-
-
+        
         var entrepriseContactIndex = document.getElementById("entrepriseContactIndex").value;
         var entrepriseId = entrepriseIdArray[entrepriseContactIndex];
         var idEntrepriseContact = idEntrepriseContactArray[entrepriseContactIndex];
