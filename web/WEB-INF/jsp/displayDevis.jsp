@@ -12,7 +12,7 @@
    <p class="h2"> Liste Table Devis  </p>
 
    <!-- TODO : est-il mieux de passer le param de la requête via un hidden input ? -->
-   <c:url var="URL_DELETE_MULTIPLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/></c:url>>
+   <c:url var="URL_DELETE_MULTIPLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/></c:url>
 
    <form method="post" action="${pageScope.URL_DELETE_MULTIPLE_DEVIS}">
 
