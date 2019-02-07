@@ -24,7 +24,7 @@ public class DevisDaoImpl implements DevisDao {
                     "client_interlocuteur_id,\n" +
                     "type_livraison_id,\n" +
                     "entreprise_contact_id,\n" +
-                    "devis.entreprise_id,\n" +
+                    "entreprise_id,\n" +
                     "facture_id  \n" +
                     "FROM devis\n" +
                     "inner join client_interlocuteur\n" +
@@ -50,7 +50,7 @@ public class DevisDaoImpl implements DevisDao {
                                 "client_interlocuteur_id,\n" +
                                 "type_livraison_id,\n" +
                                 "entreprise_contact_id,\n" +
-                                "devis.entreprise_id,\n" +
+                                "entreprise_id,\n" +
                                 "facture_id  \n" +
                                 "FROM devis\n" +
                                 "inner join client_interlocuteur\n" +
@@ -85,7 +85,7 @@ public class DevisDaoImpl implements DevisDao {
             "client_interlocuteur_id,\n" +
             "type_livraison_id,\n" +
             "entreprise_contact_id,\n" +
-            "devis.entreprise_id,\n" +
+            "entreprise_id,\n" +
             "facture_id ) " +
             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -317,7 +317,7 @@ public class DevisDaoImpl implements DevisDao {
         devis.setClientInterlocuteurId(resultSet.getLong("client_interlocuteur_id"));
         devis.setTypeLivraisonId(resultSet.getLong("type_livraison_id"));
         devis.setEntrepriseContactId(resultSet.getLong("entreprise_contact_id"));
-        devis.setEntrepriseId(resultSet.getLong("devis.entreprise_id"));
+        devis.setEntrepriseId(resultSet.getLong("entreprise_id"));
         devis.setFactureId(resultSet.getLong("facture_id"));
 
         return devis;
