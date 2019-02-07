@@ -1,0 +1,4 @@
+﻿INSERT INTO tp_devis.entreprise (siret,raison_sociale,num_tva,tel,fax,adresse_entreprise_id) VALUES 
+('12345678910111','INMAC COMPAGNY','123456789ABCD','+331245879654','+33215478965',1)
+,('92345678910111','JOSSE COMPAGNY','X23456789ABCD','+981245879654','+98215478965',2)
+;
