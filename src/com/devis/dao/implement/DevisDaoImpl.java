@@ -24,7 +24,7 @@ public class DevisDaoImpl implements DevisDao {
                     "client_interlocuteur_id,\n" +
                     "type_livraison_id,\n" +
                     "entreprise_contact_id,\n" +
-                    "entreprise_id,\n" +
+                    "devis.entreprise_id,\n" +
                     "facture_id  \n" +
                     "FROM devis\n" +
                     "inner join client_interlocuteur\n" +
@@ -50,7 +50,7 @@ public class DevisDaoImpl implements DevisDao {
                                 "client_interlocuteur_id,\n" +
                                 "type_livraison_id,\n" +
                                 "entreprise_contact_id,\n" +
-                                "entreprise_id,\n" +
+                                "devis.entreprise_id,\n" +
                                 "facture_id  \n" +
                                 "FROM devis\n" +
                                 "inner join client_interlocuteur\n" +
