@@ -79,6 +79,7 @@ public class Create extends HttpServlet {
         /* TODO : Utiliser méthode getValeurChamp avec private static final CHAMP_X */
         /* TODO : Utiliser la lib Apache Commons BeanUtils -> BeanUtils.populate(bean, request.getParameterMap()); */
         /* TODO : Utiliser les objets implicites EL (ex:initParam) pour pouvoir utiliser la lib Apache Commons BeanUtils */
+        /* TODO : Utiliser la lib Hibernate Validator ou Apache BVal pour la validation des inputs des beans*/
         Integer NUM_DEVIS_MAX_CHAR = 10;
         String numDevis = request.getParameter("numDevis");
         devis.setNumDevis( numDevis.substring(0, Math.min(NUM_DEVIS_MAX_CHAR, numDevis.length() )));
