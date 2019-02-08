@@ -19,12 +19,9 @@ public class Create extends HttpServlet {
     public static final String VUE  = "/WEB-INF/jsp/displayDevis.jsp";
 
     @Override
-    public void init() {
+    public void init() throws ServletException {
 
-        // TODO : voir s'il est préférable d'instancier un singleton (moins de mémoire que multiples instances de classes statiques)
-        // TODO : vérifier qu'il y bien une seule instance dans l'application
-        //  (peut-être que chaque servlet instancie une classe static auquel cas les verif isInirialized sont inutiles)
-        DAOBeanLoader.init( getServletContext() );
+       DAOBeanLoader.init( getServletContext() );
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
