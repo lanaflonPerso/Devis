@@ -44,9 +44,9 @@
 
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
-            <include-prelude>/WEB-INF/jspf/taglibs.jspf</include-prelude>
-            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
-            <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+            <include-prelude>/WEB-INF/jsp/_include/taglibs.jspf</include-prelude>
+            <include-prelude>/WEB-INF/jsp/_include/header.jspf</include-prelude>
+            <include-coda>/WEB-INF/jsp/_include/footer.jspf</include-coda>
         </jsp-property-group>
 
     </jsp-config>
