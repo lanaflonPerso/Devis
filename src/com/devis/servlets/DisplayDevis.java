@@ -14,6 +14,7 @@ public class DisplayDevis extends HttpServlet {
 
     public static final String VUE = "/WEB-INF/jsp/displayDevis.jsp";
 
+    @Override
     public void init() {
 
         // TODO : voir s'il est préférable d'instancier un singleton (moins de mémoire que multiples instances de classes statiques)
