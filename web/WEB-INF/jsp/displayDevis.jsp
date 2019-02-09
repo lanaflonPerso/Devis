@@ -64,7 +64,7 @@
 
    <p class="h1"> Ajouter un devis </p>
 
-   <%@ include file="../jspf/formDevis.jspf" %>
+   <%@ include file="_include/formDevis.jspf" %>
 
    <br><br>
 
