@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="<c:url value="/ressources/CSS/404.css"/>" />
+    <link type="text/css" rel="stylesheet" href="<c:url value="/ressources/CSS/error404.css"/>" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
