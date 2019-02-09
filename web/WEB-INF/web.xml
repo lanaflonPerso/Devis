@@ -140,7 +140,7 @@
 
     <context-param>
         <param-name>organization.url</param-name>
-        <param-value>yanomami.synology.me</param-value>
+        <param-value>https://yanomami.synology.me</param-value>
     </context-param>
 
 </web-app>

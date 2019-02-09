@@ -3,6 +3,7 @@ package com.devis.dao;
 import com.devis.dao.daoException.DAOConfigurationException;
 import com.devis.dao.implement.*;
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.tomcat.jdbc.pool.PoolConfiguration;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
 import java.io.IOException;
@@ -114,6 +115,10 @@ public class DAOFactory {
         return this.connectionPool.getConnection();
     }
 
+    public static PoolConfiguration getPoolProperties() {
+        return instance.connectionPool.getPoolProperties();
+    }
+
     /*
      * Méthodes de récupération de l'implémentation des différents Dao
      */
@@ -130,11 +135,8 @@ public class DAOFactory {
     public EntrepriseDao getEntrepriseDao() {
         return new EntrepriseDaoImpl( this );
     }
-    public EntrepriseContactDao getEntrepriseContactDao() {
-        return new EntrepriseContactDaoImpl( this );
-    }
+    public EntrepriseContactDao getEntrepriseContactDao() { return new EntrepriseContactDaoImpl( this ); }
     public ClientInterlocuteurDao getClientInterlocuteurDao() {
         return new ClientInterlocuteurDaoImpl( this );
     }
-
 }

@@ -1,5 +1,7 @@
 package com.devis.servlets;
 
+import com.devis.dao.DAOFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,7 @@ public class About extends HttpServlet {
         request.setAttribute("maven_build_timestamp", getServletContext().getInitParameter("maven.build.timestamp"));
         request.setAttribute("organization_name", getServletContext().getInitParameter("organization.name"));
         request.setAttribute("organization_url", getServletContext().getInitParameter("organization.url"));
+        request.setAttribute("poolProperties", DAOFactory.getPoolProperties());
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
