@@ -14,7 +14,7 @@
 
     <p class="h1">
         <%-- Utilisation des objets EL implicites ici param --%>
-        Bienvenue à <c:out value="${param.nom} ${paramValues.prenom[0]} ${paramValues.prenom[1]}" default="YOYO" /> <%-- TODO: Le default ne s'affiche pas...--%>
+        Bienvenue <c:out value="${param.nom} ${paramValues.prenom[0]} ${paramValues.prenom[1]}" default="YOYO" /> <%-- TODO: Le default ne s'affiche pas...--%>
     </p>
 
     <p class="h2">
