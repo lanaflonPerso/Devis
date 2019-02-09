@@ -44,7 +44,8 @@ body {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: url('../img/bg.jpg') no-repeat;
+  //background: url('../img/bg.jpg') no-repeat;
+  background: url('https://png.pngtree.com/thumb_back/fw800/back_pic/04/19/88/72582d274f46274.jpg') no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: cover;
