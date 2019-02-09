@@ -12,7 +12,7 @@
 
    <p class="h2"> Liste Table Devis  </p>
 
-   <!-- TODO : est-il mieux de passer le param de la requête via un hidden input ? -->
+   <%-- TODO : est-il mieux de passer le param de la requête via un hidden input ? --%>
    <c:url var="URL_DELETE_MULTIPLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/></c:url>
 
    <form method="post" action="${pageScope.URL_DELETE_MULTIPLE_DEVIS}">
@@ -51,7 +51,7 @@
                         <input class="form-check-input position-static" type="checkbox" name="deleteIdDevis" id="blankCheckbox" value="${ pageScope.devis.idDevis }" aria-label="...">
                     </div>
                 </td>
-                <!-- TODO : est-il mieux de passer les params de la requête via des hidden inputs ? -->
+                <%-- TODO : est-il mieux de passer les params de la requête via des hidden inputs ? --%>
                 <c:url var="URL_DELETE_SINGLE_DEVIS" value="/delete"><c:param name="nameBean" value="devis"/><c:param name="idBean" value="${ pageScope.devis.idDevis }"/></c:url>
                 <td><a class="btn btn-primary" href="${URL_DELETE_SINGLE_DEVIS}" role="button">Delete</a></td>
             </tr>
@@ -213,6 +213,4 @@
 
 </body>
 </html>
-
-
 

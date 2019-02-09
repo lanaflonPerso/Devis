@@ -13,12 +13,11 @@
 </head>
 
 <!-- Header -->
-
 <header>
 
-    <!-- Définitions des constantes symboliques des URLs
+    <%-- Définitions des constantes symboliques des URLs
         La directive JSTL url avec "/" génère une url absolue et gère les cookies/sessions.
-        De plus la directive param transforme les caractères spéciaux en codes Html (évite injections de code) -->
+        De plus la directive param transforme les caractères spéciaux en codes Html (évite injections de code) --%>
     <c:url value="/" var="URL_HOME"><c:param name="nom" value="Lebahar"/><c:param name="prenom" value="Josselin"/><c:param name="prenom" value="Florian"/></c:url>
     <c:url value="/displayDevis" var="URL_DISPLAY_DEVIS"/>
 
@@ -37,5 +36,4 @@
     </nav>
 
 </header>
-
 <!-- Header -->

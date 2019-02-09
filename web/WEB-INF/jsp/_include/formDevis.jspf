@@ -6,8 +6,8 @@
 
 </head>
 
-<!-- TODO : L'asterisk ne s'affiche pas pour dateDevis -->
-<!-- Il a fallu ajouter required dans <div class="form-group"> en plus des required dans les <input>,<select>,<textarea> -->
+<%-- TODO : L'asterisk ne s'affiche pas pour dateDevis
+     Il a fallu ajouter required dans <div class="form-group"> en plus des required dans les <input>,<select>,<textarea> --%>
 <style>
     .form-group[required] label:after {
         content:" *";
@@ -17,7 +17,7 @@
 
 <div class="container">
 
-    <!-- TODO : est-il mieux de passer le param de la requête via un hidden input ? -->
+    <%-- TODO : est-il mieux de passer le param de la requête via un hidden input ? --%>
     <c:url var="URL_CREATE_DEVIS" value="/create"><c:param name="nameBean" value="devis"/></c:url>
 
     <form class="needs-validation" method="post" action="${pageScope.URL_CREATE_DEVIS}" novalidate>
@@ -70,8 +70,8 @@
         </div>
     </div>
 
-    <!--  Cf. fonction javascript getEntrepriseId() -->
-    <!-- Rappel : idEntrepriseContact est un index relatif à entrepriseId dans la table entrepriseContact. -->
+    <%--  Cf. fonction javascript getEntrepriseId()
+          Rappel : idEntrepriseContact est un index relatif à entrepriseId dans la table entrepriseContact. --%>
     <div class="form-group" required>
         <label for="entrepriseContactIndex">entrepriseContact</label>
         <select onChange="getEntrepriseId();" class="form-control" id="entrepriseContactIndex" required>
@@ -93,12 +93,12 @@
         </div>
     </div>
 
-    <!--  Cf. fonction javascript getEntrepriseId() -->
-    <!-- Rappel : idEntrepriseContact est un index relatif à entrepriseId dans la table entrepriseContact. -->
+    <%--  Cf. fonction javascript getEntrepriseId()
+          Rappel : idEntrepriseContact est un index relatif à entrepriseId dans la table entrepriseContact. --%>
     <input type="hidden" id="entrepriseId" name="entrepriseId">
     <input type="hidden" id="entrepriseContactId" name="entrepriseContactId">
 
-    <!-- TODO : Le date picker ne fonctionne pas (prb d'incompatibilité avec Bootstrap 4 ?) -->
+    <%-- TODO : Le date picker ne fonctionne pas (prb d'incompatibilité avec Bootstrap 4 ?) --%>
     <script>
         $("#startdate_datepicker").datepicker();
         $("#enddate_datepicker" ).datepicker();
