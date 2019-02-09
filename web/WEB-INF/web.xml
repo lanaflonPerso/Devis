@@ -47,6 +47,7 @@
             <include-prelude>/WEB-INF/jsp/_include/taglibs.jspf</include-prelude>
             <include-prelude>/WEB-INF/jsp/_include/header.jspf</include-prelude>
             <include-coda>/WEB-INF/jsp/_include/footer.jspf</include-coda>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
         </jsp-property-group>
 
     </jsp-config>
