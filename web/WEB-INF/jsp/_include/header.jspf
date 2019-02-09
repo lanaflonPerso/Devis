@@ -20,6 +20,7 @@
         De plus la directive param transforme les caractères spéciaux en codes Html (évite injections de code) --%>
     <c:url value="/" var="URL_HOME"><c:param name="nom" value="Lebahar"/><c:param name="prenom" value="Josselin"/><c:param name="prenom" value="Florian"/></c:url>
     <c:url value="/displayDevis" var="URL_DISPLAY_DEVIS"/>
+    <c:url value="/about" var="URL_ABOUT"/>
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -31,6 +32,7 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="${pageScope.URL_HOME}">Home<span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="${pageScope.URL_DISPLAY_DEVIS}">Devis</a>
+                <a class="nav-item nav-link" href="${pageScope.URL_ABOUT}">About</a>
             </div>
         </div>
     </nav>

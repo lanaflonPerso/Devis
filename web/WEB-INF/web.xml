@@ -40,6 +40,15 @@
         <url-pattern>/create</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>About</servlet-name>
+        <servlet-class>com.devis.servlets.About</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>About</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
     <jsp-config>
 
         <jsp-property-group>
