@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title><%=request.getServletContext().getServletContextName() %> - Accueil</title>
+    <title><%=request.getServletContext().getServletContextName() %> - Accueil</title> <%-- TODO : config.getServletName() ne renvoie pas "Accueil" (renvoie "jsp") --%>
     <link href="<c:url value="/ressources/CSS/home.css"/>" rel="stylesheet" type="text/css">
 </head>
 
