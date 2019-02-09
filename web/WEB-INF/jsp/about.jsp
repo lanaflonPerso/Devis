@@ -2,20 +2,22 @@
 <html lang="fr">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${application.name} - A propos</title>
-    <link rel="stylesheet" href="../style/custom.css" />
+    <title>${requestScope.application_name} - A propos</title>
+    <link href="<c:url value="/ressources/CSS/display.css"/>" rel="stylesheet" type="text/css">
 </head>
 
 
-<body>
+<body id="pageBody">
 
-<div class="container">
-    <ul>
-        <li>Application : ${application.name}</li>
-        <li>Version : ${project.version}</li>
-        <li>Date du build : ${maven.build.timestamp}</li>
-        <li><a href="${organization.url}">${organization.name}</a></li>
+<%-- TODO : Récupérer ces éléments de Maven plutôt que depuis les <context-param><param-name> du web.xml
+     Cf. https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven/4609764-packagez-vos-livrables --%>
+<div class="container d-flex align-items-center flex-column justify-content-center h-100" >
+    <ul class="list-group" >
+        <li class="list-group-item">Application : ${requestScope.application_name}</li>
+        <li class="list-group-item">Version : ${requestScope.project_version}</li>
+        <li class="list-group-item">Date du build : ${requestScope.maven_build_timestamp}</li>
+        <li class="list-group-item">DataBase :</li>
+        <li class="list-group-item">Organisation :<a href="${requestScope.organization_url}">${requestScope.organization_name}</a></li>
     </ul>
 </div>
 

@@ -112,4 +112,13 @@ public class Create extends HttpServlet {
             return valeur;
         }
     }
+
+    /* TODO : créer une classe utilitaire avec méthodes statiques */
+    /* Cf. https://www.baeldung.com/context-servlet-initialization-param pour les valeurs par défaut */
+    protected String getRequestParameter(
+            HttpServletRequest request,
+            String name) {
+        String param = request.getParameter(name);
+        return !param.isEmpty() ? param : getInitParameter(name);
+    }
 }

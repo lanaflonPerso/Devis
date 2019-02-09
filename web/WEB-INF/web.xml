@@ -118,4 +118,29 @@
         <location>/WEB-INF/jsp/error.jsp</location>
     </error-page>
 
+    <context-param>
+        <param-name>application.name</param-name>
+        <param-value>My little devis</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>project.version</param-name>
+        <param-value>1.0 SNAPSHOT</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>maven.build.timestamp</param-name>
+        <param-value>A récupérer de Maven</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>organization.name</param-name>
+        <param-value>Josselin Lebahar</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>organization.url</param-name>
+        <param-value>yanomami.synology.me</param-value>
+    </context-param>
+
 </web-app>

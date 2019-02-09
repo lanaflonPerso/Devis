@@ -6,7 +6,7 @@
     <link href="<c:url value="/ressources/CSS/display.css"/>" rel="stylesheet" type="text/css">
 </head>
 
-<body id="pageDevisBody">
+<body id="pageBody">
 
    <br>
 
