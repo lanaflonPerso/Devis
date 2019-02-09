@@ -16,7 +16,7 @@
     </p>
 
     <p class="h2">
-        Date courante: ${requestScope.currentTime}
+        Date courante: ${requestScope.currentDateTime}
     </p>
 
 

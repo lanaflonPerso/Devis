@@ -18,8 +18,7 @@ public class Home extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        LocalDateTime currentTime = LocalDateTime.now();
-        request.setAttribute("currentTime", currentTime);
+        request.setAttribute("currentDateTime", LocalDateTime.now());
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
