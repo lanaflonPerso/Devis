@@ -17,6 +17,7 @@
         <li class="list-group-item"><strong>Version</strong> : ${requestScope.project_version}</li>
         <li class="list-group-item"><strong>Date du build</strong> : ${requestScope.maven_build_timestamp}</li>
         <li class="list-group-item"><strong>DataBase</strong> : url : ${requestScope.poolProperties.url} // user : ${requestScope.poolProperties.username} </li>
+        <li class="list-group-item"><strong>Server</strong> : ${requestScope.serverInfo}</li>
         <li class="list-group-item"><strong>Organisation</strong> : <a href="${requestScope.organization_url}">${requestScope.organization_name}</a></li>
     </ul>
 </div>

@@ -28,6 +28,7 @@ public class About extends HttpServlet {
         request.setAttribute("organization_name", getServletContext().getInitParameter("organization.name"));
         request.setAttribute("organization_url", getServletContext().getInitParameter("organization.url"));
         request.setAttribute("poolProperties", DAOFactory.getPoolProperties());
+        request.setAttribute("serverInfo", getServletContext().getServerInfo());
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
     }
