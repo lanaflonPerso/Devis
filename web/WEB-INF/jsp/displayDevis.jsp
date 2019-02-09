@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>Devis</title>
+    <title><%=request.getServletContext().getServletContextName() %> - Devis</title>
     <link href="<c:url value="/ressources/CSS/display.css"/>" rel="stylesheet" type="text/css">
 </head>
 

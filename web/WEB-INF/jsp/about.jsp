@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>${requestScope.application_name} - A propos</title>
+    <title><%=request.getServletContext().getServletContextName() %> - A propos</title>
     <link href="<c:url value="/ressources/CSS/display.css"/>" rel="stylesheet" type="text/css">
 </head>
 

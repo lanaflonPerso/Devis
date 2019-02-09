@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>Accueil</title>
+    <title><%=request.getServletContext().getServletContextName() %> - Accueil</title>
     <link href="<c:url value="/ressources/CSS/home.css"/>" rel="stylesheet" type="text/css">
 </head>
 

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
-    <title>Page d'erreur</title>
+    <title><%=request.getServletContext().getServletContextName() %> - Page d'erreur</title>
 </head>
 
 <body bgcolor="#FFFFFF">
