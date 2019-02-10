@@ -4,7 +4,9 @@
 <html lang="fr">
 
 <head>
-    <title><%=request.getServletContext().getServletContextName() %> - Accueil</title> <%-- TODO : config.getServletName() ne renvoie pas "Accueil" (renvoie "jsp") --%>
+    <%-- TODO : Comme config.getServletName() ne renvoie pas "Accueil" comme prévu (renvoie en pratique "jsp")
+    on utilise plutôt request.getServletContext().getServletContextName() qui renvoie le <display-name> du web.xml càd le nom de l'application --%>
+    <title><%=request.getServletContext().getServletContextName() %> - Accueil</title>
     <link href="<c:url value="/ressources/CSS/home.css"/>" rel="stylesheet" type="text/css">
 </head>
 
