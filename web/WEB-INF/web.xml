@@ -115,10 +115,11 @@
         <url-pattern>*.js</url-pattern>
     </servlet-mapping>
 
+    <!-- TODO : Si activé l'appli démarre sur index et non sur "/" (servlet Home)
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
     <error-page>
         <error-code>404</error-code>
