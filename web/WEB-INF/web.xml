@@ -117,6 +117,7 @@
 
     <!-- TODO : Si activé l'appli démarre sur index et non sur "/" (servlet Home).
          Par contre sans cette directive les pages html (hors WEB-INF) ne s'affichent pas.
+         Chez Seb pas besoin de cette directive pour afficher les pages html...!
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.html</url-pattern>
